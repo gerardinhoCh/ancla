@@ -3,7 +3,7 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v1";
+const CACHE_NAME = "ancla-cache-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

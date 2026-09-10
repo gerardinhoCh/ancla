@@ -1,18 +1,19 @@
 /* ==========================================================================
-   ANCLA - Crisis Mode (High Contrast, Low Cognitive Load Protocol)
+   ANCLA - Crisis Mode: High Contrast but Soft & Reassuring
+   Still readable and clear — but warm, not harsh.
    ========================================================================== */
 
 .crisis-overlay {
   position: fixed;
   inset: 0;
   z-index: var(--z-crisis-overlay);
-  background-color: #000000;
+  background: linear-gradient(160deg, #1e1b4b 0%, #312e81 40%, #1e3a5f 100%);
   color: #ffffff;
   display: none;
   flex-direction: column;
   overflow-y: auto;
   padding: env(safe-area-inset-top, 20px) var(--space-5) env(safe-area-inset-bottom, 20px);
-  animation: crisisFadeIn 0.25s ease-out;
+  animation: crisisFadeIn 0.3s ease-out;
 }
 
 .crisis-overlay.active {
@@ -20,14 +21,8 @@
 }
 
 @keyframes crisisFadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
 }
 
 /* Crisis Header */
@@ -35,38 +30,41 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #333333;
   padding-bottom: var(--space-4);
   margin-bottom: var(--space-6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .crisis-badge {
-  background: #ffcc00;
-  color: #000000;
-  font-weight: 900;
-  font-size: 0.85rem;
-  letter-spacing: 0.08em;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-sm);
+  background: rgba(255, 220, 50, 0.25);
+  color: #fde68a;
+  font-weight: 800;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(253, 230, 138, 0.3);
   text-transform: uppercase;
 }
 
 .crisis-exit-btn {
-  background: #222222;
-  border: 1px solid #555555;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
   padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  font-size: 0.9rem;
-  font-weight: 600;
+  border-radius: var(--radius-full);
+  font-size: 0.88rem;
+  font-weight: 700;
   cursor: pointer;
+  transition: all var(--transition-fast);
 }
 
 .crisis-exit-btn:hover {
-  background: #333333;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
-/* Crisis Main Stage */
+/* Crisis Main Content */
 .crisis-content {
   flex: 1;
   max-width: 600px;
@@ -79,33 +77,33 @@
 }
 
 .crisis-step-indicator {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ffcc00;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #fde68a;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
 }
 
 .crisis-headline {
-  font-size: 1.85rem;
+  font-size: 1.7rem;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.3;
   color: #ffffff;
 }
 
 .crisis-guidance-box {
-  background: #111111;
-  border: 3px solid #ffcc00;
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: var(--radius-xl);
   padding: var(--space-6);
-  box-shadow: 0 8px 30px rgba(255, 204, 0, 0.15);
+  backdrop-filter: blur(6px);
 }
 
 .crisis-action-text {
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  line-height: 1.45;
-  color: #ffffff;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: var(--space-5);
 }
 
@@ -121,23 +119,25 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  background: #1e1e1e;
-  border-radius: var(--radius-md);
-  font-size: 1.15rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  font-size: 1.05rem;
   font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .crisis-item-num {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: var(--radius-full);
-  background: #ffcc00;
-  color: #000000;
+  background: #fde68a;
+  color: #1e1b4b;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 800;
-  font-size: 1rem;
+  font-weight: 900;
+  font-size: 0.85rem;
   flex-shrink: 0;
 }
 
@@ -145,39 +145,45 @@
 .crisis-controls {
   display: flex;
   gap: var(--space-3);
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
 }
 
 .crisis-step-btn {
   flex: 1;
   padding: var(--space-4);
-  font-size: 1.15rem;
-  font-weight: 700;
-  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: 800;
+  border-radius: var(--radius-xl);
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
+  transition: all var(--transition-bounce);
 }
 
 .crisis-step-btn.next {
-  background: #ffcc00;
-  color: #000000;
+  background: #fde68a;
+  color: #1e1b4b;
+}
+
+.crisis-step-btn.next:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(253, 230, 138, 0.3);
 }
 
 .crisis-step-btn.prev {
-  background: #262626;
-  color: #ffffff;
-  border: 1px solid #444444;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* Sticky Emergency Bar inside Crisis Mode */
+/* Emergency Call Bar inside Crisis */
 .crisis-urgent-bar {
-  margin-top: var(--space-8);
-  padding-top: var(--space-4);
-  border-top: 2px solid #333333;
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -188,17 +194,21 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-3);
-  background: #ef4444;
+  background: rgba(244, 63, 94, 0.8);
   color: #ffffff;
-  padding: var(--space-4);
-  border-radius: var(--radius-lg);
-  font-size: 1.25rem;
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-xl);
+  font-size: 1.1rem;
   font-weight: 800;
   text-decoration: none;
   text-align: center;
-  box-shadow: 0 6px 24px rgba(239, 68, 68, 0.4);
+  border: 1px solid rgba(244, 63, 94, 0.5);
+  backdrop-filter: blur(4px);
+  transition: all var(--transition-bounce);
 }
 
 .crisis-call-btn:hover {
-  background: #dc2626;
+  background: rgba(244, 63, 94, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244, 63, 94, 0.4);
 }

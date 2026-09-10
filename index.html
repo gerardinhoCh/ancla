@@ -4,22 +4,199 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Ancla: Aplicación offline-first de apoyo emocional, plan de seguridad Stanley-Brown y respuesta inmediata a crisis." />
-  <meta name="theme-color" content="#0a0f1d" />
+  <meta name="theme-color" content="#f0f4f8" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="manifest" href="./manifest.webmanifest" />
   <title>Ancla · Plan de Seguridad y Apoyo en Crisis</title>
-
-  <!-- Native CSS Design Architecture -->
   <link rel="stylesheet" href="./css/design-tokens.css" />
   <link rel="stylesheet" href="./css/base.css" />
   <link rel="stylesheet" href="./css/components.css" />
   <link rel="stylesheet" href="./css/crisis-mode.css" />
   <link rel="stylesheet" href="./css/calm-kit.css" />
+  <style>
+    /* ── Inline overrides for the new zen-bubble palette ── */
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+    .section-eyebrow span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    /* Quick action buttons */
+    .quick-action-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      padding: var(--space-5);
+      border-radius: var(--radius-xl);
+      border: 1.5px solid transparent;
+      background: var(--bg-surface);
+      cursor: pointer;
+      text-align: left;
+      transition: all var(--transition-bounce);
+      box-shadow: var(--shadow-sm), var(--shadow-inner-glow);
+    }
+    .quick-action-card:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+    .quick-action-card:active {
+      transform: scale(0.97);
+    }
+    .quick-action-card .emoji {
+      font-size: 2rem;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+    }
+    .quick-action-card .label {
+      font-size: 0.98rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+    .quick-action-card .sublabel {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Card accent colors */
+    .card-rose   { background: #fff1f2; border-color: rgba(244, 63, 94, 0.2); }
+    .card-mint   { background: #f0fdfa; border-color: rgba(45, 212, 191, 0.25); }
+    .card-sky    { background: #f0f9ff; border-color: rgba(56, 189, 248, 0.25); }
+    .card-violet { background: #faf5ff; border-color: rgba(168, 85, 247, 0.2); }
+    .card-amber  { background: #fffbeb; border-color: rgba(251, 191, 36, 0.25); }
+    .card-green  { background: #f0fdf4; border-color: rgba(74, 222, 128, 0.25); }
+
+    /* Plan items */
+    .plan-step-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: var(--bg-canvas);
+      border: 1.5px solid var(--border-soft);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    /* Hotline bubble */
+    .hotline-bubble {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-xl);
+      text-decoration: none;
+      transition: all var(--transition-bounce);
+      border: 1.5px solid transparent;
+    }
+    .hotline-bubble:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .hotline-bubble .hb-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .hotline-bubble .hb-name { font-weight: 700; font-size: 0.93rem; color: var(--text-primary); }
+    .hotline-bubble .hb-desc { font-size: 0.75rem; color: var(--text-muted); }
+    .hotline-bubble .hb-call {
+      margin-left: auto;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* Reassurance banner */
+    .reassurance-banner {
+      background: linear-gradient(135deg, #f0fdfa, #f0f9ff);
+      border: 1.5px solid rgba(45, 212, 191, 0.25);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      margin-bottom: var(--space-4);
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+      box-shadow: var(--shadow-sm), var(--shadow-inner-glow);
+    }
+    .reassurance-banner h3 {
+      font-size: 1.05rem;
+      color: #0d7490;
+      margin-bottom: 4px;
+    }
+
+    /* Mood slider styling */
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(to right, #f87171, #fb923c, #facc15, #4ade80, #2dd4bf);
+      border-radius: var(--radius-full);
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      background: #ffffff;
+      border: 3px solid var(--mint-500);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: all var(--transition-bounce);
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+
+    /* Mood score display */
+    .mood-score-big {
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--mint-500), var(--sky-400));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Print utility */
+    @media print {
+      .sos-fab-container, .bottom-nav, .app-header { display: none; }
+      .main-viewport { padding: 0; }
+      .card { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Top Application Header -->
+  <!-- ══════════════════════════════════════════════════════
+       TOP HEADER
+       ══════════════════════════════════════════════════════ -->
   <header class="app-header" role="banner">
     <div class="brand-container">
       <div class="brand-icon" aria-hidden="true">
@@ -32,120 +209,140 @@
       </div>
       <div>
         <h1 class="brand-title">Ancla</h1>
-        <span class="brand-subtitle">Plan de Seguridad & Apoyo en Crisis</span>
+        <span class="brand-subtitle">Apoyo y Seguridad en Crisis</span>
       </div>
     </div>
 
     <div class="header-actions">
-      <span id="offlineBadge" class="badge-security" style="display: none; background: rgba(245, 158, 11, 0.2); color: #f59e0b; border-color: rgba(245, 158, 11, 0.4);" title="Modo sin conexión activo">
+      <span id="offlineBadge" class="badge-security" style="display: none; background: #fef3c7; color: #92400e;" title="Sin conexión · Funciona igual">
         📡 Offline
       </span>
-      <div id="securityStatusBadge" class="badge-security" title="Datos cifrados localmente">
-        <span>🛡️</span> Cifrado AES-256
+      <div id="securityStatusBadge" class="badge-security">
+        🛡️ Cifrado
       </div>
-      <button id="lockAppBtn" class="btn btn-sm btn-ghost" title="Bloquear aplicación" style="padding: 6px; border-radius: var(--radius-full);">
+      <button id="lockAppBtn" class="btn btn-sm btn-ghost" title="Bloquear" style="padding: 6px 8px;">
         🔒
       </button>
     </div>
   </header>
 
-  <!-- Main Viewport -->
+  <!-- ══════════════════════════════════════════════════════
+       MAIN VIEWPORT
+       ══════════════════════════════════════════════════════ -->
   <main class="main-viewport" role="main">
 
     <!-- PWA Install Banner -->
-    <div id="pwaInstallBanner" style="display: none; align-items: center; justify-content: space-between; padding: 12px 16px; background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(6, 182, 212, 0.1)); border: 1px solid rgba(20, 184, 166, 0.3); border-radius: var(--radius-lg); margin-bottom: 16px;">
-      <div style="font-size: 0.85rem;">
-        <strong>Instalar Ancla en tu pantalla</strong>
-        <p style="font-size: 0.75rem; color: var(--text-muted);">Acceso inmediato sin conexión en momentos de urgencia.</p>
+    <div id="pwaInstallBanner" style="display: none; align-items: center; justify-content: space-between; padding: 14px 18px; background: linear-gradient(135deg, #f0fdfa, #f0f9ff); border: 1.5px solid rgba(45, 212, 191, 0.3); border-radius: var(--radius-xl); margin-bottom: 16px; box-shadow: var(--shadow-sm);">
+      <div>
+        <strong style="font-size: 0.9rem; color: var(--text-primary);">📲 Instalar Ancla en tu pantalla</strong>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 2px;">Acceso inmediato sin conexión en momentos de urgencia.</p>
       </div>
-      <button id="pwaInstallBtn" class="btn btn-sm btn-primary">Instalar</button>
+      <button id="pwaInstallBtn" class="btn btn-sm btn-primary" style="white-space: nowrap;">Instalar</button>
     </div>
 
-    <!-- TAB 1: INICIO & RESUMEN DE SEGURIDAD -->
+    <!-- ════════════════════════════════
+         TAB 1: INICIO
+         ════════════════════════════════ -->
     <section id="tab-home" class="tab-view active" aria-labelledby="homeHeading">
       <h2 id="homeHeading" class="sr-only">Inicio y Resumen</h2>
 
       <!-- Reassurance Banner -->
-      <div class="card" style="background: linear-gradient(145deg, #111e33, #0b1526); border-color: rgba(6, 182, 212, 0.25);">
-        <div style="display: flex; gap: 14px; align-items: flex-start;">
-          <span style="font-size: 2rem;">🕊️</span>
-          <div>
-            <h3 style="color: var(--accent-cyan); margin-bottom: 4px;">Estás a salvo en este momento</h3>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.45;">
-              Este espacio es tu refugio confidencial. Si sientes que la angustia aumenta, recuerda que las crisis tienen un final y hay ayuda disponible.
-            </p>
-          </div>
+      <div class="reassurance-banner">
+        <span style="font-size: 2.2rem; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));">🕊️</span>
+        <div>
+          <h3>Estás a salvo ahora mismo</h3>
+          <p style="font-size: 0.87rem; line-height: 1.55;">
+            Este es tu refugio privado. Las crisis son temporales — siempre pasan. Hay ayuda disponible.
+          </p>
         </div>
       </div>
 
-      <!-- Quick Action Cards Grid -->
+      <!-- Quick Actions -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-4);">
-        <button id="homeQuickCrisisBtn" class="card" style="text-align: left; cursor: pointer; border-color: rgba(239, 68, 68, 0.35); background: linear-gradient(145deg, #211215, #140d10); margin-bottom: 0;">
-          <div style="font-size: 1.8rem; margin-bottom: 6px;">⚡</div>
-          <strong style="color: #ef4444; font-size: 1rem; display: block;">Modo Crisis</strong>
-          <span style="font-size: 0.75rem; color: var(--text-muted);">Lectura rápida y rescate inmediato</span>
+        <button id="homeQuickCrisisBtn" class="quick-action-card card-rose" style="margin-bottom: 0;">
+          <div class="emoji">⚡</div>
+          <span class="label" style="color: #be123c;">Modo Crisis</span>
+          <span class="sublabel">Guía paso a paso</span>
         </button>
 
-        <button id="homeQuickCalmBtn" class="card" style="text-align: left; cursor: pointer; border-color: rgba(20, 184, 166, 0.35); background: linear-gradient(145deg, #0d2222, #091717); margin-bottom: 0;">
-          <div style="font-size: 1.8rem; margin-bottom: 6px;">🫁</div>
-          <strong style="color: var(--accent-teal); font-size: 1rem; display: block;">Respirar Ahora</strong>
-          <span style="font-size: 0.75rem; color: var(--text-muted);">Bajar taquicardia y cortisol</span>
+        <button id="homeQuickCalmBtn" class="quick-action-card card-mint" style="margin-bottom: 0;">
+          <div class="emoji">🫁</div>
+          <span class="label" style="color: #0f766e;">Respirar Ahora</span>
+          <span class="sublabel">Calmar la angustia</span>
         </button>
       </div>
 
-      <!-- Hotlines Direct Access Card -->
+      <!-- Hotlines Card -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">📞</span>
-            Líneas de Ayuda Inmediata (Ecuador)
+            <span class="card-icon" style="background: #fff1f2;">📞</span>
+            Ayuda Inmediata
           </div>
+          <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Ecuador</span>
         </div>
+
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <a href="tel:171" class="emergency-btn urgent" style="padding: 12px 14px;">
-            <div class="emergency-icon" style="width: 40px; height: 40px; font-size: 1.1rem;">🩺</div>
-            <div class="emergency-details">
-              <div class="emergency-title" style="font-size: 0.95rem;">Línea 171 - Opción 6 (MSP)</div>
-              <div class="emergency-desc">Contención psicológica gratuita 24/7</div>
+          <a href="tel:171" class="hotline-bubble" style="background: #fff1f2; border-color: rgba(244, 63, 94, 0.2);">
+            <div class="hb-icon" style="background: #fecdd3;">🩺</div>
+            <div>
+              <div class="hb-name">Línea 171 · Opción 6</div>
+              <div class="hb-desc">Salud Mental · MSP Ecuador · Gratuito 24/7</div>
             </div>
-            <span class="btn btn-sm btn-urgent">Llamar 171</span>
+            <div class="hb-call" style="background: var(--sos-primary); color: #fff;">Llamar</div>
           </a>
 
-          <a href="tel:911" class="emergency-btn ecu" style="padding: 12px 14px;">
-            <div class="emergency-icon" style="width: 40px; height: 40px; font-size: 1.1rem;">🚑</div>
-            <div class="emergency-details">
-              <div class="emergency-title" style="font-size: 0.95rem;">ECU 911</div>
-              <div class="emergency-desc">Riesgo inminente para la vida</div>
+          <a href="tel:911" class="hotline-bubble" style="background: var(--sky-50); border-color: rgba(14, 165, 233, 0.2);">
+            <div class="hb-icon" style="background: var(--sky-100);">🚑</div>
+            <div>
+              <div class="hb-name">ECU 911</div>
+              <div class="hb-desc">Emergencias vitales</div>
             </div>
-            <span class="btn btn-sm btn-primary">Llamar 911</span>
+            <div class="hb-call" style="background: var(--sky-500); color: #fff;">Llamar</div>
           </a>
         </div>
       </div>
 
-      <!-- Stanley-Brown Preview Card -->
-      <div class="card">
+      <!-- Safety Plan Preview -->
+      <div class="card card-sky">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">📋</span>
+            <span class="card-icon" style="background: var(--sky-100);">📋</span>
             Tu Plan de Seguridad
           </div>
-          <button id="homeQuickPlanBtn" class="btn btn-sm btn-secondary">Ver completo</button>
+          <button id="homeQuickPlanBtn" class="btn btn-sm btn-secondary">Ver</button>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
-          Tu guía personalizada de 6 pasos acordada para superar momentos de crisis paso a paso.
+        <p style="font-size: 0.85rem; margin-bottom: 12px;">
+          Guía personalizada de 6 pasos para superar momentos difíciles.
         </p>
-        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-          <span style="font-size: 0.75rem; padding: 4px 8px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary);">1. Señales</span>
-          <span style="font-size: 0.75rem; padding: 4px 8px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary);">2. Afrontamiento</span>
-          <span style="font-size: 0.75rem; padding: 4px 8px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary);">3. Distracción</span>
-          <span style="font-size: 0.75rem; padding: 4px 8px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary);">4. Apoyo</span>
-          <span style="font-size: 0.75rem; padding: 4px 8px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary);">5. Profesionales</span>
-          <span style="font-size: 0.75rem; padding: 4px 8px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary);">6. Entorno Seguro</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+          <span class="plan-step-chip">1 · Señales</span>
+          <span class="plan-step-chip">2 · Afrontamiento</span>
+          <span class="plan-step-chip">3 · Distracción</span>
+          <span class="plan-step-chip">4 · Apoyo</span>
+          <span class="plan-step-chip">5 · Profesionales</span>
+          <span class="plan-step-chip">6 · Entorno Seguro</span>
         </div>
+      </div>
+
+      <!-- Calm Kit Preview -->
+      <div class="card card-mint">
+        <div class="card-header">
+          <div class="card-title">
+            <span class="card-icon" style="background: var(--mint-100);">🌿</span>
+            Kit de Calma
+          </div>
+          <button id="homeQuickCalmBtn2" class="btn btn-sm btn-secondary" onclick="document.querySelector('[data-tab=tab-calm]').click()">Explorar</button>
+        </div>
+        <p style="font-size: 0.85rem;">
+          Respiración guiada, anclaje 5-4-3-2-1, tarjetas de afrontamiento y sonidos relajantes.
+        </p>
       </div>
     </section>
 
-    <!-- TAB 2: PLAN DE SEGURIDAD STANLEY-BROWN -->
+    <!-- ════════════════════════════════
+         TAB 2: PLAN DE SEGURIDAD
+         ════════════════════════════════ -->
     <section id="tab-plan" class="tab-view" aria-labelledby="planHeading">
       <h2 id="planHeading" class="sr-only">Plan de Seguridad</h2>
       <div id="safetyPlanContainer">
@@ -153,22 +350,23 @@
       </div>
     </section>
 
-    <!-- TAB 3: KIT DE CALMA Y EJERCICIOS SOMÁTICOS -->
+    <!-- ════════════════════════════════
+         TAB 3: KIT DE CALMA
+         ════════════════════════════════ -->
     <section id="tab-calm" class="tab-view" aria-labelledby="calmHeading">
       <h2 id="calmHeading" class="sr-only">Kit de Calma</h2>
 
-      <!-- Technique Selection Tabs -->
+      <!-- Technique Tabs -->
       <div class="technique-selector" role="tablist">
-        <button class="technique-tab active" data-tech="box">Respiración Caja (4-4-4-4)</button>
-        <button class="technique-tab" data-tech="deep">4-7-8 Relajación</button>
-        <button class="technique-tab" data-tech="coherence">Coherencia 5-5</button>
+        <button class="technique-tab active" data-tech="box">Caja 4-4-4-4</button>
+        <button class="technique-tab" data-tech="deep">4-7-8</button>
+        <button class="technique-tab" data-tech="coherence">Coherencia</button>
       </div>
 
       <!-- Breathing Orb Card -->
-      <div class="card" style="text-align: center;">
+      <div class="card" style="text-align: center; padding: var(--space-6);">
         <p id="breathingDesc" style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: var(--space-4);"></p>
-
-        <div class="breathing-wrapper">
+        <div class="breathing-wrapper" style="padding: var(--space-4);">
           <div class="breathing-container">
             <div class="breathing-outer-ring"></div>
             <div id="breathingOrb" class="breathing-orb">
@@ -177,27 +375,24 @@
             </div>
           </div>
         </div>
-
         <div class="breathing-controls">
-          <button id="startBreathingBtn" class="btn btn-primary" style="min-width: 150px;">
+          <button id="startBreathingBtn" class="btn btn-primary" style="min-width: 160px; font-size: 1rem; padding: 14px 28px;">
             ▶️ Comenzar
           </button>
         </div>
       </div>
 
-      <!-- 5-4-3-2-1 Sensory Grounding Tool -->
+      <!-- 5-4-3-2-1 Grounding -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(20, 184, 166, 0.15); color: var(--accent-teal);">🌿</span>
+            <span class="card-icon" style="background: var(--sage-100);">🌿</span>
             Anclaje Sensorial 5-4-3-2-1
           </div>
-          <button id="groundingSpeakBtn" class="btn btn-sm btn-ghost" title="Escuchar guía de voz">
-            🔊 Escuchar
-          </button>
+          <button id="groundingSpeakBtn" class="btn btn-sm btn-ghost">🔊</button>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 16px;">
-          Reconecta tu mente con el presente activando tus cinco sentidos uno por uno.
+        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 16px;">
+          Reconecta con el presente a través de tus sentidos.
         </p>
 
         <div class="grounding-stepper">
@@ -211,240 +406,238 @@
         <div class="grounding-card">
           <div id="groundingIcon" class="grounding-icon-large">👁️</div>
           <h3 id="groundingTitle" class="grounding-task-title">5 cosas que ves</h3>
-          <p id="groundingDesc" class="grounding-task-desc">Observa 5 cosas a tu alrededor con atención.</p>
+          <p id="groundingDesc" class="grounding-task-desc"></p>
           <div id="groundingTags" class="grounding-check-items"></div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; gap: 8px;">
-          <button id="groundingPrevBtn" class="btn btn-secondary">⬅️ Anterior</button>
-          <button id="groundingNextBtn" class="btn btn-primary">Siguiente sentido ➡️</button>
+        <div style="display: flex; justify-content: space-between; gap: 10px;">
+          <button id="groundingPrevBtn" class="btn btn-secondary" style="flex: 1;">⬅️</button>
+          <button id="groundingNextBtn" class="btn btn-primary" style="flex: 2;">Siguiente ➡️</button>
         </div>
       </div>
 
-      <!-- Coping Cards Flip Deck -->
+      <!-- Coping Cards -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-lavender);">🎴</span>
-            Tarjetas de Afrontamiento Clínico
+            <span class="card-icon" style="background: var(--lavender-100);">🎴</span>
+            Tarjetas de Afrontamiento
           </div>
-          <span id="copingCardCounter" style="font-size: 0.8rem; color: var(--text-muted);">1 de 4</span>
+          <span id="copingCardCounter" style="font-size: 0.78rem; color: var(--text-muted); font-weight: 600;">1 de 4</span>
         </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
-          Toca la tarjeta para voltearla y leer la perspectiva de alivio.
-        </p>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 12px;">Toca la tarjeta para voltearla.</p>
 
-        <div class="coping-cards-container">
+        <div class="coping-cards-container" style="min-height: 180px;">
           <div id="activeCopingCard" class="coping-card">
             <div class="card-face card-front">
-              <span style="font-size: 1.5rem; margin-bottom: 8px;">💭</span>
+              <span style="font-size: 1.6rem; margin-bottom: 10px;">💭</span>
               <p id="cardFrontText" class="card-affirmation"></p>
-              <span style="font-size: 0.75rem; color: var(--accent-cyan); margin-top: 12px;">(Toca para ver respuesta)</span>
+              <span style="font-size: 0.72rem; color: var(--sky-500); margin-top: 12px; font-weight: 700;">↻ Toca para voltear</span>
             </div>
             <div class="card-face card-back">
-              <span style="font-size: 1.5rem; margin-bottom: 8px;">🌱</span>
+              <span style="font-size: 1.6rem; margin-bottom: 10px;">🌱</span>
               <p id="cardBackText" class="card-affirmation"></p>
             </div>
           </div>
         </div>
 
-        <div style="display: flex; justify-content: space-between; margin-top: 12px;">
-          <button id="prevCardBtn" class="btn btn-sm btn-secondary">⬅️ Anterior</button>
-          <button id="nextCardBtn" class="btn btn-sm btn-secondary">Siguiente tarjeta ➡️</button>
+        <div style="display: flex; justify-content: space-between; margin-top: 16px; gap: 8px;">
+          <button id="prevCardBtn" class="btn btn-sm btn-secondary">⬅️</button>
+          <button id="nextCardBtn" class="btn btn-sm btn-secondary">Siguiente ➡️</button>
         </div>
       </div>
 
-      <!-- TIPP Somatic Emergency Skills -->
-      <div class="card">
+      <!-- TIPP Techniques -->
+      <div class="card card-amber">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-amber);">🧊</span>
-            Técnica TIPP (Desactivación Fisiológica)
+            <span class="card-icon" style="background: #fef3c7;">🧊</span>
+            Técnicas TIPP (Crisis Física)
           </div>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
-          Habilidades de la Terapia Dialéctica Conductual para crisis de alta intensidad:
-        </p>
-        <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
-          <div style="padding: 10px; background: var(--bg-surface-elevated); border-radius: var(--radius-md);">
-            <strong>T - Temperatura:</strong> Llena un recipiente con agua helada o colócate una compresa fría en ojos y mejillas por 30 segundos para activar el reflejo de inmersión y bajar pulsaciones.
+        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 12px;">Para cuando el cuerpo entra en pánico:</p>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="padding: 12px 14px; background: rgba(255,255,255,0.7); border-radius: var(--radius-lg); font-size: 0.87rem; color: var(--text-primary);">
+            <strong>🌡️ Temperatura:</strong> Agua helada en el rostro o compresa fría 30 segundos.
           </div>
-          <div style="padding: 10px; background: var(--bg-surface-elevated); border-radius: var(--radius-md);">
-            <strong>I - Intensidad Física:</strong> Haz 1 minuto de sentadillas o camina a paso muy rápido para gastar la adrenalina acumulada.
+          <div style="padding: 12px 14px; background: rgba(255,255,255,0.7); border-radius: var(--radius-lg); font-size: 0.87rem; color: var(--text-primary);">
+            <strong>🏃 Intensidad:</strong> Sentadillas o camina muy rápido 1 minuto.
           </div>
-          <div style="padding: 10px; background: var(--bg-surface-elevated); border-radius: var(--radius-md);">
-            <strong>P - Pausa en Respiración:</strong> Exhala siempre más lento de lo que inhalas (ej. 4 segundos inhalar, 8 exhalar).
+          <div style="padding: 12px 14px; background: rgba(255,255,255,0.7); border-radius: var(--radius-lg); font-size: 0.87rem; color: var(--text-primary);">
+            <strong>🌬️ Pausa:</strong> Exhala siempre más lento que inhalas.
           </div>
-          <div style="padding: 10px; background: var(--bg-surface-elevated); border-radius: var(--radius-md);">
-            <strong>P - Relajación Muscular:</strong> Aprieta con fuerza tus puños por 5 segundos y suéltalos de golpe sintiendo la liberación.
+          <div style="padding: 12px 14px; background: rgba(255,255,255,0.7); border-radius: var(--radius-lg); font-size: 0.87rem; color: var(--text-primary);">
+            <strong>💪 Relajación:</strong> Aprieta los puños 5 seg y suéltalos bruscamente.
           </div>
         </div>
       </div>
 
-      <!-- Ambient Sound Generator -->
-      <div class="card">
+      <!-- Sound Generator -->
+      <div class="card card-violet">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">🎵</span>
-            Generador de Ondas Terapéuticas
+            <span class="card-icon" style="background: var(--lavender-100);">🎵</span>
+            Ondas Terapéuticas
           </div>
         </div>
-        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
-          Sonidos armónicos generados en tiempo real por tu navegador (100% offline).
+        <p style="font-size: 0.83rem; color: var(--text-muted); margin-bottom: 14px;">
+          Sonidos generados sin conexión por tu dispositivo.
         </p>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <button id="toggleSoundTheta" class="btn btn-secondary">▶️ Ondas Theta (6 Hz)</button>
-          <button id="toggleSound432" class="btn btn-secondary">▶️ Frecuencia 432 Hz</button>
+          <button id="toggleSoundTheta" class="btn btn-secondary">▶️ Theta 6 Hz</button>
+          <button id="toggleSound432" class="btn btn-secondary">▶️ 432 Hz</button>
         </div>
       </div>
     </section>
 
-    <!-- TAB 4: REGISTRO DE ÁNIMO Y ANCLAJES -->
+    <!-- ════════════════════════════════
+         TAB 4: ÁNIMO Y ANCLAJES
+         ════════════════════════════════ -->
     <section id="tab-mood" class="tab-view" aria-labelledby="moodHeading">
-      <h2 id="moodHeading" class="sr-only">Registro de Ánimo y Anclajes</h2>
+      <h2 id="moodHeading" class="sr-only">Registro de Ánimo</h2>
 
-      <!-- Clinical Risk Alert (Dynamic) -->
-      <div id="moodRiskAlert" style="display: none; padding: 14px; background: rgba(239, 68, 68, 0.15); border: 1px solid var(--sos-color); border-radius: var(--radius-lg); margin-bottom: 16px;">
-        <div style="display: flex; gap: 10px; align-items: center;">
-          <span style="font-size: 1.5rem;">⚠️</span>
+      <!-- Clinical Risk Alert (hidden by default) -->
+      <div id="moodRiskAlert" style="display: none; padding: 16px; background: var(--rose-50); border: 1.5px solid rgba(244, 63, 94, 0.25); border-radius: var(--radius-xl); margin-bottom: 16px;">
+        <div style="display: flex; gap: 12px; align-items: flex-start;">
+          <span style="font-size: 1.6rem;">🌧️</span>
           <div>
-            <strong style="color: #ef4444; font-size: 0.95rem;">Detectamos días de alta dificultad</strong>
-            <p style="font-size: 0.82rem; color: var(--text-secondary);">
-              Tus últimos registros indican malestar sostenido. Te sugerimos revisar tu plan de seguridad o contactar a tu terapeuta.
-            </p>
-            <button id="moodAlertReviewPlanBtn" class="btn btn-sm btn-urgent" style="margin-top: 8px;">Revisar Plan de Seguridad</button>
+            <strong style="color: #be123c; font-size: 0.95rem; display: block; margin-bottom: 4px;">Días difíciles detectados</strong>
+            <p style="font-size: 0.82rem;">Tus registros muestran malestar sostenido. Te sugerimos revisar tu plan de seguridad o contactar a tu terapeuta.</p>
+            <button id="moodAlertReviewPlanBtn" class="btn btn-sm btn-urgent" style="margin-top: 10px;">Ver Plan de Seguridad</button>
           </div>
         </div>
       </div>
 
-      <!-- Quick Mood Check-In -->
+      <!-- Mood Check-In -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(20, 184, 166, 0.15); color: var(--accent-teal);">📊</span>
-            Check-in Emocional Rápido
+            <span class="card-icon" style="background: var(--lavender-100);">💜</span>
+            Check-in Emocional
           </div>
-          <span id="moodScoreVal" style="font-size: 1.4rem; font-weight: 800; color: var(--accent-cyan);">5</span>
+          <div class="mood-score-big" id="moodScoreVal">5</div>
         </div>
-        <p id="moodScoreLabel" style="font-size: 0.92rem; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; text-align: center;">
-          Estado regular 🙂
-        </p>
+
+        <p id="moodScoreLabel" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 16px; text-align: center;">Estado regular 🙂</p>
 
         <div class="form-group">
-          <input type="range" id="moodScoreSlider" min="1" max="10" value="5" style="width: 100%; height: 8px; accent-color: var(--accent-teal);" />
-          <div style="display: flex; justify-content: space-between; font-size: 0.72rem; color: var(--text-muted); margin-top: 4px;">
-            <span>1 (Crisis severa)</span>
-            <span>5 (Regular)</span>
-            <span>10 (Óptimo)</span>
+          <input type="range" id="moodScoreSlider" min="1" max="10" value="5" />
+          <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 6px; font-weight: 600;">
+            <span>Crisis 😣</span>
+            <span>Regular 🙂</span>
+            <span>Óptimo 🌟</span>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label">¿Qué emociones están presentes?</label>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;">
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Ansiedad">Ansiedad</button>
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Tristeza">Tristeza</button>
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Enojo">Enojo</button>
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Miedo">Miedo</button>
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Esperanza">Esperanza</button>
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Calma">Calma</button>
-            <button class="grounding-tag-btn emotion-chip" data-emotion="Agotamiento">Agotamiento</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Ansiedad">😰 Ansiedad</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Tristeza">😢 Tristeza</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Enojo">😤 Enojo</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Miedo">😨 Miedo</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Esperanza">🌅 Esperanza</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Calma">😌 Calma</button>
+            <button class="grounding-tag-btn emotion-chip" data-emotion="Agotamiento">😴 Agotamiento</button>
           </div>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="moodNoteInput">Nota breve (opcional):</label>
-          <textarea id="moodNoteInput" class="textarea" placeholder="¿Qué detonó esta emoción o qué te ayudó hoy?"></textarea>
+          <textarea id="moodNoteInput" class="textarea" placeholder="¿Qué detonó esto o qué te ayudó hoy?"></textarea>
         </div>
 
-        <button id="saveMoodBtn" class="btn btn-primary btn-block">Guardar Check-in</button>
+        <button id="saveMoodBtn" class="btn btn-primary btn-block" style="font-size: 1rem; padding: 14px;">
+          Guardar 💾
+        </button>
       </div>
 
-      <!-- Mood Trend SVG Chart -->
+      <!-- Mood Chart -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">📈</span>
-            Tendencia de Bienestar
+            <span class="card-icon" style="background: var(--mint-100);">📈</span>
+            Tendencia Emocional
           </div>
         </div>
-        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">Evolución de los últimos registros:</p>
-        <div style="width: 100%; overflow-x: auto;">
-          <svg id="moodChartSvg" viewBox="0 0 500 180" style="width: 100%; max-width: 500px; height: 180px; display: block; margin: 0 auto;"></svg>
+        <div style="width: 100%; overflow-x: auto; border-radius: var(--radius-lg); background: var(--bg-canvas); padding: 8px;">
+          <svg id="moodChartSvg" viewBox="0 0 500 180" style="width: 100%; max-width: 500px; height: 160px; display: block; margin: 0 auto;"></svg>
         </div>
       </div>
 
-      <!-- Multimedia Personal Anchors -->
+      <!-- Personal Anchors -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-lavender);">⚓</span>
+            <span class="card-icon" style="background: var(--peach-100, #ffedd5);">⚓</span>
             Anclajes Personales
           </div>
           <div style="display: flex; gap: 6px;">
             <label class="btn btn-sm btn-secondary" style="cursor: pointer;">
-              📷 Foto
+              📷
               <input type="file" id="anchorFileInput" accept="image/*" style="display: none;" />
             </label>
-            <button id="recordVoiceAnchorBtn" class="btn btn-sm btn-secondary">🎙️ Audio</button>
+            <button id="recordVoiceAnchorBtn" class="btn btn-sm btn-secondary">🎙️</button>
           </div>
         </div>
-        <div id="anchorsContainer">
-          <!-- Rendered by anchors.js -->
-        </div>
+        <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 12px;">
+          Fotos y audios que te reconfortan en momentos difíciles.
+        </p>
+        <div id="anchorsContainer"></div>
       </div>
     </section>
 
-    <!-- TAB 5: PRIVACIDAD, CONFIGURACIÓN Y PORTAL TERAPEUTA -->
+    <!-- ════════════════════════════════
+         TAB 5: PRIVACIDAD & AJUSTES
+         ════════════════════════════════ -->
     <section id="tab-settings" class="tab-view" aria-labelledby="settingsHeading">
       <h2 id="settingsHeading" class="sr-only">Privacidad y Configuración</h2>
-      <div id="therapistPortalContainer">
-        <!-- Rendered by therapist-portal.js -->
-      </div>
+      <div id="therapistPortalContainer"></div>
     </section>
 
   </main>
 
-  <!-- Persistent Floating Emergency Button (SOS FAB) -->
-  <aside class="sos-fab-container" aria-label="Acción rápida de emergencia">
-    <button id="sosFloatingBtn" class="sos-fab" title="SOS - Auxilio inmediato">
+  <!-- ══════════════════════════════════════════════════════
+       FLOATING SOS BUTTON
+       ══════════════════════════════════════════════════════ -->
+  <aside class="sos-fab-container" aria-label="Botón de emergencia SOS">
+    <button id="sosFloatingBtn" class="sos-fab" title="SOS · Auxilio inmediato">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 11.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.11 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16.92z"></path>
       </svg>
       <span>SOS</span>
     </button>
   </aside>
 
-  <!-- SOS Emergency Speed-Dial Modal Sheet -->
+  <!-- ══════════════════════════════════════════════════════
+       SOS MODAL SHEET
+       ══════════════════════════════════════════════════════ -->
   <div id="sosModalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="sosModalTitle">
     <div class="modal-sheet">
       <div class="modal-handle"></div>
       <div class="modal-header">
-        <h3 id="sosModalTitle" style="color: var(--sos-color); display: flex; align-items: center; gap: 8px;">
-          <span>🚨</span> Auxilio y Marcado de Emergencia
-        </h3>
-        <button id="closeSosModalBtn" class="modal-close-btn" aria-label="Cerrar modal">✕</button>
+        <div>
+          <h3 id="sosModalTitle" style="font-size: 1.15rem;">🆘 Auxilio de Emergencia</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;">Un toque para llamar directamente</p>
+        </div>
+        <button id="closeSosModalBtn" class="modal-close-btn" aria-label="Cerrar">✕</button>
       </div>
 
-      <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 12px;">
-        Un toque para llamar directamente. No estás solo/a en este momento.
-      </p>
-
-      <button id="sosLaunchCrisisBtn" class="btn btn-urgent btn-block" style="margin-bottom: 16px; font-size: 1.05rem; padding: 14px;">
-        ⚡ Activar Modo Crisis (Lectura de Rescate)
+      <button id="sosLaunchCrisisBtn" class="btn btn-urgent btn-block" style="font-size: 1rem; padding: 14px; margin-bottom: 16px; border-radius: var(--radius-xl);">
+        ⚡ Activar Modo Crisis · Guía paso a paso
       </button>
 
-      <div id="emergencySpeedGrid" class="emergency-grid">
-        <!-- Injected by sos.js -->
-      </div>
+      <div id="emergencySpeedGrid" class="emergency-grid"></div>
     </div>
   </div>
 
-  <!-- Fullscreen Crisis Mode Overlay (High Contrast / Stanley-Brown Fast Reader) -->
+  <!-- ══════════════════════════════════════════════════════
+       CRISIS MODE OVERLAY (High contrast, but warm)
+       ══════════════════════════════════════════════════════ -->
   <div id="crisisModeOverlay" class="crisis-overlay" role="dialog" aria-modal="true" aria-labelledby="crisisHeadline">
     <div class="crisis-top-bar">
-      <span class="crisis-badge">Modo Crisis Activo</span>
-      <button id="exitCrisisModeBtn" class="crisis-exit-btn">✕ Salir de Crisis</button>
+      <span class="crisis-badge">⚡ Modo Crisis Activo</span>
+      <button id="exitCrisisModeBtn" class="crisis-exit-btn">✕ Salir</button>
     </div>
 
     <div class="crisis-content">
@@ -452,33 +645,30 @@
       <h2 id="crisisHeadline" class="crisis-headline">Esta crisis es temporal. Respira.</h2>
 
       <div class="crisis-guidance-box">
-        <div id="crisisActionText" class="crisis-action-text">
-          Tu único objetivo en los próximos 10 minutos es mantenerte a salvo.
-        </div>
-        <ul id="crisisItemsList" class="crisis-items-list">
-          <!-- Injected dynamically -->
-        </ul>
+        <ul id="crisisItemsList" class="crisis-items-list"></ul>
       </div>
 
       <div class="crisis-controls">
-        <button id="crisisPrevBtn" class="crisis-step-btn prev">⬅️ Anterior</button>
-        <button id="crisisNextBtn" class="crisis-step-btn next">Siguiente paso ➡️</button>
+        <button id="crisisPrevBtn" class="crisis-step-btn prev">⬅️</button>
+        <button id="crisisNextBtn" class="crisis-step-btn next">Siguiente ➡️</button>
       </div>
 
       <div class="crisis-urgent-bar">
         <a href="tel:171" class="crisis-call-btn">
-          📞 Llamar ahora a Línea 171 (Opción 6)
+          📞 Línea 171 · Opción 6 · Salud Mental (Gratuito)
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Lockscreen Overlay (Biometric & PIN with Immediate SOS Bypass) -->
+  <!-- ══════════════════════════════════════════════════════
+       LOCKSCREEN OVERLAY
+       ══════════════════════════════════════════════════════ -->
   <div id="lockscreenOverlay" class="lockscreen-overlay" style="display: none;" role="dialog" aria-modal="true">
     <div class="lockscreen-card">
       <div class="lockscreen-icon-wrap">🔒</div>
-      <h2 style="font-size: 1.3rem; margin-bottom: 4px;">Espacio Protegido</h2>
-      <p style="font-size: 0.85rem; color: var(--text-muted);">Ingresa tu PIN de 4 dígitos</p>
+      <h2 style="font-size: 1.25rem; margin-bottom: 6px;">Tu espacio privado</h2>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">Ingresa tu PIN de 4 dígitos para continuar</p>
 
       <div class="pin-display">
         <div class="pin-dot"></div>
@@ -497,21 +687,22 @@
         <button class="keypad-btn" data-num="7">7</button>
         <button class="keypad-btn" data-num="8">8</button>
         <button class="keypad-btn" data-num="9">9</button>
-        <button id="keypadBioBtn" class="keypad-btn" title="Autenticación Biométrica">👆</button>
+        <button id="keypadBioBtn" class="keypad-btn" title="Biometría">👆</button>
         <button class="keypad-btn" data-num="0">0</button>
-        <button id="keypadDeleteBtn" class="keypad-btn" title="Borrar">⌫</button>
+        <button id="keypadDeleteBtn" class="keypad-btn">⌫</button>
       </div>
 
-      <!-- Vital Emergency Bypass -->
       <div class="lock-sos-bypass">
         <button id="lockSosBypassBtn" class="btn btn-sm btn-urgent btn-block">
-          🚨 Auxilio Urgente (SOS sin desbloquear)
+          🚨 Auxilio urgente (sin desbloquear)
         </button>
       </div>
     </div>
   </div>
 
-  <!-- Accessible Bottom Navigation Bar -->
+  <!-- ══════════════════════════════════════════════════════
+       BOTTOM NAVIGATION — Floating pill
+       ══════════════════════════════════════════════════════ -->
   <nav class="bottom-nav" role="navigation" aria-label="Navegación principal">
     <button class="nav-item active" data-tab="tab-home">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
@@ -527,7 +718,6 @@
         <polyline points="14 2 14 8 20 8"></polyline>
         <line x1="16" y1="13" x2="8" y2="13"></line>
         <line x1="16" y1="17" x2="8" y2="17"></line>
-        <polyline points="10 9 9 9 8 9"></polyline>
       </svg>
       <span>Plan</span>
     </button>
@@ -556,7 +746,6 @@
     </button>
   </nav>
 
-  <!-- Application Entry Point -->
   <script type="module" src="./js/app.js"></script>
 </body>
 </html>

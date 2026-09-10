@@ -50,7 +50,7 @@ export class SafetyPlanModule {
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(239, 68, 68, 0.15); color: #ef4444;">1</span>
+            <span class="card-icon" style="background: #fecdd3; color: #be123c;">1</span>
             Señales de advertencia
           </div>
           <button class="btn btn-sm btn-ghost add-item-btn" data-step="step1_warning_signs">➕ Añadir</button>
@@ -67,7 +67,7 @@ export class SafetyPlanModule {
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(20, 184, 166, 0.15); color: var(--accent-teal);">2</span>
+            <span class="card-icon" style="background: #a7f3d0; color: #065f46;">2</span>
             Estrategias de afrontamiento individuales
           </div>
           <button class="btn btn-sm btn-ghost add-item-btn" data-step="step2_internal_coping">➕ Añadir</button>
@@ -84,7 +84,7 @@ export class SafetyPlanModule {
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">3</span>
+            <span class="card-icon" style="background: #bae6fd; color: #0369a1;">3</span>
             Personas y lugares de distracción
           </div>
           <button class="btn btn-sm btn-ghost add-item-btn" data-step="step3_distractions">➕ Añadir</button>
@@ -101,7 +101,7 @@ export class SafetyPlanModule {
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-lavender);">4</span>
+            <span class="card-icon" style="background: #e9d5ff; color: #7c3aed;">4</span>
             Red de apoyo a quien pedir ayuda directa
           </div>
           <button class="btn btn-sm btn-ghost add-person-btn" data-step="step4_support_people">➕ Añadir</button>
@@ -118,7 +118,7 @@ export class SafetyPlanModule {
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-amber);">5</span>
+            <span class="card-icon" style="background: #fef3c7; color: #b45309;">5</span>
             Profesionales y servicios de emergencia
           </div>
           <button class="btn btn-sm btn-ghost add-person-btn" data-step="step5_professionals">➕ Añadir</button>
@@ -135,7 +135,7 @@ export class SafetyPlanModule {
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green);">6</span>
+            <span class="card-icon" style="background: #bbf7d0; color: #15803d;">6</span>
             Cómo hacer que el entorno sea seguro
           </div>
           <button class="btn btn-sm btn-ghost add-item-btn" data-step="step6_safe_environment">➕ Añadir</button>
@@ -158,7 +158,7 @@ export class SafetyPlanModule {
     }
 
     return items.map((text, idx) => `
-      <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: var(--bg-canvas); border-radius: var(--radius-lg); margin-bottom: 6px; border: 1.5px solid var(--border-soft);">
         <span style="font-size: 0.9rem; color: var(--text-primary);">• ${text}</span>
         <button class="btn btn-sm btn-ghost remove-item-btn" data-step="${stepKey}" data-idx="${idx}" title="Eliminar" style="color: var(--text-muted); padding: 4px;">
           ✕
@@ -173,7 +173,7 @@ export class SafetyPlanModule {
     }
 
     return people.map((p, idx) => `
-      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-surface-elevated); border-radius: var(--radius-md); margin-bottom: 6px;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; background: var(--bg-canvas); border-radius: var(--radius-lg); margin-bottom: 6px; border: 1.5px solid var(--border-soft);">
         <div>
           <strong style="font-size: 0.92rem; color: var(--text-primary); display: block;">${p.name}</strong>
           <span style="font-size: 0.78rem; color: var(--text-muted);">${p.relation || p.role || ""} ${p.phone ? `• ${p.phone}` : ""}</span>
