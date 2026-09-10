@@ -1,0 +1,204 @@
+/* ==========================================================================
+   ANCLA - Crisis Mode (High Contrast, Low Cognitive Load Protocol)
+   ========================================================================== */
+
+.crisis-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-crisis-overlay);
+  background-color: #000000;
+  color: #ffffff;
+  display: none;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: env(safe-area-inset-top, 20px) var(--space-5) env(safe-area-inset-bottom, 20px);
+  animation: crisisFadeIn 0.25s ease-out;
+}
+
+.crisis-overlay.active {
+  display: flex;
+}
+
+@keyframes crisisFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Crisis Header */
+.crisis-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #333333;
+  padding-bottom: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.crisis-badge {
+  background: #ffcc00;
+  color: #000000;
+  font-weight: 900;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+.crisis-exit-btn {
+  background: #222222;
+  border: 1px solid #555555;
+  color: #ffffff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.crisis-exit-btn:hover {
+  background: #333333;
+}
+
+/* Crisis Main Stage */
+.crisis-content {
+  flex: 1;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.crisis-step-indicator {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffcc00;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.crisis-headline {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #ffffff;
+}
+
+.crisis-guidance-box {
+  background: #111111;
+  border: 3px solid #ffcc00;
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: 0 8px 30px rgba(255, 204, 0, 0.15);
+}
+
+.crisis-action-text {
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #ffffff;
+  margin-bottom: var(--space-5);
+}
+
+.crisis-items-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.crisis-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: #1e1e1e;
+  border-radius: var(--radius-md);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.crisis-item-num {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: #ffcc00;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Crisis Navigation Controls */
+.crisis-controls {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.crisis-step-btn {
+  flex: 1;
+  padding: var(--space-4);
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-radius: var(--radius-lg);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.crisis-step-btn.next {
+  background: #ffcc00;
+  color: #000000;
+}
+
+.crisis-step-btn.prev {
+  background: #262626;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+/* Sticky Emergency Bar inside Crisis Mode */
+.crisis-urgent-bar {
+  margin-top: var(--space-8);
+  padding-top: var(--space-4);
+  border-top: 2px solid #333333;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.crisis-call-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: #ef4444;
+  color: #ffffff;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 6px 24px rgba(239, 68, 68, 0.4);
+}
+
+.crisis-call-btn:hover {
+  background: #dc2626;
+}

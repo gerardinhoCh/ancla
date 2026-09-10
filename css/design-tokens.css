@@ -1,0 +1,103 @@
+/* ==========================================================================
+   ANCLA - Design Tokens & Therapeutic Theme System
+   ========================================================================== */
+
+:root {
+  /* Color Palette - Therapeutic Calming Palette */
+  --bg-primary: #0a0f1d;
+  --bg-surface: #111827;
+  --bg-surface-elevated: #1e293b;
+  --bg-surface-glass: rgba(17, 24, 39, 0.85);
+  --bg-overlay: rgba(10, 15, 29, 0.75);
+  
+  --border-subtle: rgba(148, 163, 184, 0.12);
+  --border-focus: #38bdf8;
+  --border-strong: rgba(148, 163, 184, 0.25);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0f172a;
+
+  /* Primary Brand & Healing Accents */
+  --accent-teal: #14b8a6;
+  --accent-teal-soft: rgba(20, 184, 166, 0.15);
+  --accent-cyan: #06b6d4;
+  --accent-cyan-soft: rgba(6, 182, 212, 0.15);
+  --accent-lavender: #8b5cf6;
+  --accent-lavender-soft: rgba(139, 92, 246, 0.15);
+  --accent-green: #10b981;
+  --accent-green-soft: rgba(16, 185, 129, 0.15);
+  --accent-amber: #f59e0b;
+  --accent-amber-soft: rgba(245, 158, 11, 0.15);
+
+  /* Urgent & SOS Signals */
+  --sos-color: #ef4444;
+  --sos-color-dark: #dc2626;
+  --sos-glow: rgba(239, 68, 68, 0.35);
+  --sos-text: #ffffff;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Spacing Scale */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 0.75rem;  /* 12px */
+  --space-4: 1rem;     /* 16px */
+  --space-5: 1.25rem;  /* 20px */
+  --space-6: 1.5rem;   /* 24px */
+  --space-8: 2rem;     /* 32px */
+  --space-10: 2.5rem;  /* 40px */
+  --space-12: 3rem;    /* 48px */
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Elevation Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+  --shadow-sos: 0 0 24px var(--sos-glow);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-Index Hierarchy */
+  --z-base: 1;
+  --z-nav: 50;
+  --z-modal: 100;
+  --z-sos-fab: 200;
+  --z-crisis-overlay: 300;
+  --z-lockscreen: 400;
+  --z-toast: 500;
+}
+
+/* Light Theme Alternative (Accessible low contrast mode) */
+[data-theme="light"] {
+  --bg-primary: #f1f5f9;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #e2e8f0;
+  --bg-surface-glass: rgba(255, 255, 255, 0.9);
+  --bg-overlay: rgba(15, 23, 42, 0.6);
+
+  --border-subtle: rgba(100, 116, 139, 0.2);
+  --border-strong: rgba(100, 116, 139, 0.4);
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-inverse: #f8fafc;
+
+  --accent-teal-soft: rgba(20, 184, 166, 0.2);
+  --accent-cyan-soft: rgba(6, 182, 212, 0.2);
+  --accent-lavender-soft: rgba(139, 92, 246, 0.2);
+}
