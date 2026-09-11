@@ -3,7 +3,7 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v7";
+const CACHE_NAME = "ancla-cache-v8";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -30,6 +30,7 @@ const ASSETS_TO_CACHE = [
   "./css/calm-kit.css",
   "./js/config.js",
   "./js/data/comfort-quotes.js",
+  "./js/data/bloopers.js",
   "./js/db/storage.js",
   "./js/crypto/encryption.js",
   "./js/auth/biometric.js",
@@ -49,7 +50,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[SW] Pre-caching core offline assets for Ancla (v7)...");
+      console.log("[SW] Pre-caching core offline assets for Ancla (v8)...");
       return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting())
   );

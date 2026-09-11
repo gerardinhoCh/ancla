@@ -13,6 +13,7 @@ import { anchorsModule } from "./modules/anchors.js";
 import { therapistPortal } from "./modules/therapist-portal.js";
 import { dailyMilestones } from "./modules/daily-milestones.js";
 import { comfortQuotes } from "./modules/comfort-quotes.js";
+import { BLOOPERS_URLS } from "./data/bloopers.js";
 
 class App {
   constructor() {
@@ -76,6 +77,15 @@ class App {
     if (quickLaunchCrisis) {
       quickLaunchCrisis.addEventListener("click", () => {
         window.dispatchEvent(new CustomEvent("launch-crisis-mode"));
+      });
+    }
+
+    const quickLaunchBlooper = document.getElementById("homeQuickBlooperBtn");
+    if (quickLaunchBlooper) {
+      quickLaunchBlooper.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * BLOOPERS_URLS.length);
+        const url = BLOOPERS_URLS[randomIndex];
+        window.open(url, "_blank");
       });
     }
   }
