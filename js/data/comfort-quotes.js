@@ -1,607 +1,527 @@
 /* ==========================================================================
-   ANCLA - 120 Frases de Contención, Calma y Esperanza
-   Validadas bajo enfoques de Psicología de Emergencia, ACT, DBT y Mindfulness.
+   ANCLA - 120 Frases de Ánimo, Cultura Pop, Sabiduría y Buen Rollo
+   Mix de: artistas famosos, películas, memes, cultura Gen Z, canciones,
+   dichos populares, humor suave y energía positiva real.
    ========================================================================== */
 
 export const COMFORT_QUOTES = [
+  // ── Artistas & Figuras Famosas ───────────────────────────────────────────
   {
-    emoji: "🕊️",
-    title: "Estás a salvo ahora mismo",
-    text: "Este es tu refugio privado. Las crisis son olas temporales: suben, alcanzan su punto y bajan. Siempre pasan."
+    emoji: "💜",
+    title: "Bob Marley lo sabía",
+    text: "\"Every little thing is gonna be alright.\" — Tres pajaritos no pueden estar equivocados."
   },
   {
-    emoji: "🌱",
-    title: "Un paso a la vez",
-    text: "No tienes que resolver toda tu vida hoy. Solo necesitas cuidar de ti en este instante presente."
-  },
-  {
-    emoji: "⚓",
-    title: "Eres más fuerte que esta tormenta",
-    text: "Has sobrevivido al 100% de tus días más oscuros hasta hoy. Tu historia aún tiene páginas hermosas por escribir."
-  },
-  {
-    emoji: "🌊",
-    title: "Respira hondo y suelta",
-    text: "Las emociones intensas son como olas en el mar. Aunque parezcan gigantes, no pueden derribar tu interior si las dejas pasar."
-  },
-  {
-    emoji: "☀️",
-    title: "El sol siempre vuelve a salir",
-    text: "Incluso detrás de las nubes más espesas y oscuras, la luz del día sigue existiendo intacta."
-  },
-  {
-    emoji: "🌸",
-    title: "Trátate con ternura",
-    text: "Lo que sientes duele, pero mereces paciencia y amabilidad contigo mismo/a en este momento vulnerable."
-  },
-  {
-    emoji: "🕯️",
-    title: "Una pequeña luz basta",
-    text: "No necesitas ver todo el camino hacia adelante, solo el siguiente paso seguro que darás hoy."
-  },
-  {
-    emoji: "🌿",
-    title: "Permítete descansar",
-    text: "Estar exhausto/a no significa que te hayas rendido. Significa que has estado luchando mucho y tu alma necesita una pausa."
-  },
-  {
-    emoji: "🌈",
-    title: "Hay un mañana esperándote",
-    text: "El dolor de hoy no será el dolor de siempre. Date la oportunidad de ver lo que el futuro tiene reservado."
-  },
-  {
-    emoji: "🤍",
-    title: "Tu vida tiene un valor inmenso",
-    text: "Aunque tu mente te diga lo contrario en este instante, el mundo es mejor y más completo contigo aquí."
-  },
-  {
-    emoji: "🌌",
-    title: "Esta noche pasará",
-    text: "Las horas más oscuras siempre preceden al amanecer. Mantente a salvo unos minutos más."
-  },
-  {
-    emoji: "🍃",
-    title: "Inhala paz, exhala tensión",
-    text: "Siente el aire entrando fresco a tus pulmones y saliendo tibio. Tu cuerpo sabe cómo volver al equilibrio."
-  },
-  {
-    emoji: "✨",
-    title: "No estás solo/a en esto",
-    text: "Hay personas y profesionales listos para tenderte la mano en cuanto lo necesites. Pedir ayuda es un acto de valentía."
-  },
-  {
-    emoji: "🪷",
-    title: "Como la flor de loto",
-    text: "Las flores más hermosas crecen desde el lodo más profundo. Este dolor puede ser el inicio de tu renacer."
-  },
-  {
-    emoji: "🌄",
-    title: "Cada nuevo día es una tregua",
-    text: "Mañana tendrás una perspectiva diferente. Permítete llegar hasta allí."
-  },
-  {
-    emoji: "🦋",
-    title: "La transformación toma tiempo",
-    text: "Sentirse vulnerable y frágil es parte del proceso de sanar. No te apresures."
-  },
-  {
-    emoji: "🍵",
-    title: "Toma un respiro cálido",
-    text: "Baja los hombros, relaja la mandíbula y toma un sorbo de agua. Tu cuerpo te agradece este momento de calma."
-  },
-  {
-    emoji: "🛡️",
-    title: "Aquí estás protegido/a",
-    text: "En este espacio no hay juicios ni exigencias. Solo un lugar seguro para reconectar contigo."
-  },
-  {
-    emoji: "🌻",
-    title: "Busca siempre la luz",
-    text: "Así como los girasoles se orientan hacia el sol, enfoca tu atención en una pequeña cosa que te dé paz hoy."
-  },
-  {
-    emoji: "🏔️",
-    title: "Firme como la montaña",
-    text: "Los vientos soplan fuerte y las tormentas azotan, pero la montaña permanece arraigada a la tierra."
-  },
-  {
-    emoji: "🕊️",
-    title: "La paz comienza adentro",
-    text: "No tienes que tener el control de todo lo que pasa afuera; solo de cómo respiras en este segundo."
+    emoji: "🎤",
+    title: "Frida Kahlo vibes",
+    text: "\"Pies, ¿para qué los quiero si tengo alas para volar?\" — Tú también tienes alas, úsalas."
   },
   {
     emoji: "🌟",
-    title: "Eres digno/a de amor y paz",
-    text: "Tus errores o dificultades no definen quién eres. Tu derecho a estar en paz es absoluto."
+    title: "Einstein tenía razón",
+    text: "\"En medio de la dificultad reside la oportunidad.\" — Si él lo dice, algo de cierto habrá."
   },
   {
-    emoji: "🌊",
-    title: "Fluye con lo que sientes",
-    text: "No pelees contra la tristeza ni la ansiedad. Obsérvalas como hojas que flotan sobre un río que avanza."
+    emoji: "🎵",
+    title: "John Lennon mode",
+    text: "\"Everything will be okay in the end. If it's not okay, it's not the end.\" — Todavía no es el final."
   },
   {
-    emoji: "🌱",
-    title: "Semillas bajo la nieve",
-    text: "Incluso en el invierno más crudo, la vida se está preparando bajo la tierra para volver a brotar."
-  },
-  {
-    emoji: "💖",
-    title: "Abrázate con compasión",
-    text: "Si un ser querido estuviera sintiendo lo que sientes hoy, ¿qué le dirías? Dítelo a ti mismo/a."
-  },
-  {
-    emoji: "🧘",
-    title: "Regresa a tu centro",
-    text: "Pon una mano sobre tu pecho y siente el latido de tu corazón. Estás vivo/a y este momento te pertenece."
-  },
-  {
-    emoji: "🌈",
-    title: "La tormenta no es tu destino",
-    text: "Es solo el clima del camino que estás cruzando. El cielo despejado vendrá después."
-  },
-  {
-    emoji: "🕯️",
-    title: "Confía en tu resistencia",
-    text: "Has pasado por momentos duros antes y encontraste la manera de seguir. Esta vez también lo harás."
-  },
-  {
-    emoji: "🌸",
-    title: "Florecerás de nuevo",
-    text: "Los árboles pierden sus hojas cada otoño y vuelven a vestirse de verde cada primavera. Tú también."
-  },
-  {
-    emoji: "⚓",
-    title: "Echa el ancla aquí",
-    text: "Deja de remar contra la corriente por unos minutos. Descansa tu mente en este refugio."
-  },
-  {
-    emoji: "🕊️",
-    title: "Nada es para siempre, ni siquiera el dolor",
-    text: "La naturaleza de las emociones es cambiar. Lo que hoy se siente insoportable, mañana empezará a menguar."
-  },
-  {
-    emoji: "🌿",
-    title: "Tu bienestar es prioridad",
-    text: "Está bien cancelar planes, desconectarte un rato y decir que no para cuidar tu salud mental."
+    emoji: "🦁",
+    title: "Maya Angelou energy",
+    text: "\"Sobreviví. Puede que me doblara pero nunca me rompí.\" — Y aquí sigues, de pie."
   },
   {
     emoji: "✨",
-    title: "Pequeñas victorias cuentan",
-    text: "Haberte levantado, haber tomado agua o abrir esta app son victorias reales. Reconócelas."
-  },
-  {
-    emoji: "☀️",
-    title: "La luz no te ha olvidado",
-    text: "A veces la vida se nubla para enseñarnos a apreciar cada destello de calma que logramos construir."
-  },
-  {
-    emoji: "🤍",
-    title: "Permítete no estar bien",
-    text: "No tienes que fingir una sonrisa si no la sientes. Reconocer tu dolor es el primer paso para aliviarlo."
-  },
-  {
-    emoji: "🌌",
-    title: "El universo es paciente",
-    text: "Las estrellas no tienen prisa por brillar en la noche. Tómate el tiempo que necesites para sanar."
-  },
-  {
-    emoji: "🍃",
-    title: "Suelta la carga pesada",
-    text: "No tienes que cargar con las expectativas de todo el mundo. Solo sé leal a tu propia recuperación."
-  },
-  {
-    emoji: "🦋",
-    title: "La oruga creyó que el mundo terminaba",
-    text: "Y justo en ese momento, se convirtió en mariposa. Lo que parece el final puede ser tu nuevo comienzo."
-  },
-  {
-    emoji: "🍵",
-    title: "Regálate un instante de serenidad",
-    text: "Mira a tu alrededor. Encuentra tres cosas hermosas o sencillas que estén cerca de ti."
-  },
-  {
-    emoji: "🛡️",
-    title: "Tu refugio inquebrantable",
-    text: "Aquí dentro no hay exigencias de rendimiento. Solo un santuario para recuperar el aliento."
+    title: "Coco Chanel lo dijo",
+    text: "\"La vida no es la que uno vivió, sino la que uno recuerda.\" — Estás creando mejores recuerdos."
   },
   {
     emoji: "🌻",
-    title: "Mereces días soleados",
-    text: "La alegría volverá a tocar a tu puerta, aunque ahora la sientas muy lejana. Espera por ella."
+    title: "Van Gogh pintó estrellas de noche",
+    text: "Desde su oscuridad más profunda creó la obra más luminosa de la historia. Tu noche también tiene estrellas."
   },
   {
-    emoji: "🏔️",
-    title: "Tus raíces son profundas",
-    text: "Hay fuerzas dentro de ti que aún no has descubierto y que te sostendrán en este momento."
+    emoji: "🎸",
+    title: "Freddie Mercury swagger",
+    text: "\"The show must go on.\" — Y tú eres la estrella principal de tu show."
   },
   {
-    emoji: "🌊",
-    title: "El mar siempre se calma",
-    text: "Por más bravo que esté el oleaje, la superficie siempre vuelve a ser un espejo de quietud."
-  },
-  {
-    emoji: "🌱",
-    title: "Cada respiración es una oportunidad",
-    text: "Con cada inhalación recibes energía fresca; con cada exhalación dejas ir el peso del pasado."
-  },
-  {
-    emoji: "💖",
-    title: "Tu existencia importa",
-    text: "Hay sonrisas que solo tú provocas y lugares que solo tu presencia puede iluminar."
+    emoji: "📖",
+    title: "Gabriel García Márquez",
+    text: "\"La vida no es la que uno vivió, sino la que uno recuerda para contarla.\" — Tu mejor historia está por venir."
   },
   {
     emoji: "🕊️",
-    title: "La serenidad es un camino",
-    text: "No se trata de no sentir dolor, sino de aprender a cobijarse mientras la tormenta amaina."
+    title: "Mandela lo vivió",
+    text: "\"Siempre parece imposible hasta que se hace.\" — Un paso a la vez, crack."
+  },
+
+  // ── Películas & Series ───────────────────────────────────────────────────
+  {
+    emoji: "🧙‍♂️",
+    title: "Gandalf tiene un punto",
+    text: "\"Todo lo que tenemos que decidir es qué hacer con el tiempo que se nos ha dado.\" — Y tú elegiste abrir esta app. W."
   },
   {
-    emoji: "🌟",
-    title: "Brillas incluso en la penumbra",
-    text: "Tu capacidad de sentir profundamente es también la prueba de lo vivo/a y valioso/a que eres."
+    emoji: "🐠",
+    title: "Dory lo tenía claro",
+    text: "\"Just keep swimming, just keep swimming.\" — Sigue nadando, que la corriente pasa."
   },
   {
-    emoji: "🧘",
-    title: "Aquí y ahora estás a salvo",
-    text: "Siente tus pies en el suelo, la espalda apoyada y el ritmo suave de tu propia vida latiendo."
-  },
-  {
-    emoji: "🌈",
-    title: "La esperanza es un músculo",
-    text: "Se fortalece cada vez que decides darte una oportunidad más para ver el próximo amanecer."
-  },
-  {
-    emoji: "🕯️",
-    title: "Calidez en medio del frío",
-    text: "Envuélvete en una manta, ponte cómodo/a y recuerda que no tienes que enfrentar esto solo/a."
-  },
-  {
-    emoji: "🌸",
-    title: "La belleza de resistir",
-    text: "Seguir adelante cuando todo pesa es el mayor acto de coraje que existe. Siéntete orgulloso/a."
-  },
-  {
-    emoji: "⚓",
-    title: "Sujétate a lo que amas",
-    text: "Una canción, una mascota, una taza de té caliente, un recuerdo de risa. Esos son tus anclajes."
-  },
-  {
-    emoji: "🌿",
-    title: "Date permiso de ir despacio",
-    text: "La prisa es enemiga de la calma. Camina suave, habla suave y respira despacio hoy."
-  },
-  {
-    emoji: "✨",
-    title: "La magia de comenzar de nuevo",
-    text: "Cada minuto que pasa te da una pizarra en blanco para respirar y recomenzar."
-  },
-  {
-    emoji: "☀️",
-    title: "El calor volverá a tu pecho",
-    text: "Esa sensación de vacío o frío no se quedará a vivir contigo. La tibieza de la vida regresará."
-  },
-  {
-    emoji: "🤍",
-    title: "Eres suficiente, tal como eres",
-    text: "No necesitas demostrarle nada a nadie en este momento. Tu única tarea hoy es estar a salvo."
+    emoji: "🦸",
+    title: "Spider-Man sabe",
+    text: "\"Cualquiera puede usar la máscara.\" — Hoy tu superpoder es aguantar, y eso ya es heroico."
   },
   {
     emoji: "🌌",
-    title: "El cielo nocturno te cobija",
-    text: "Descansa tu mente. Deja que la noche cumpla su función de reparar lo que el día desgastó."
+    title: "Star Wars wisdom",
+    text: "\"Do or do not, there is no try.\" — Yoda cree en ti. Yo también."
   },
   {
-    emoji: "🍃",
-    title: "Libérate de culpas",
-    text: "Hiciste lo mejor que pudiste con las herramientas que tenías en su momento. Perdónate."
+    emoji: "🏰",
+    title: "Ratatouille energy",
+    text: "\"Cualquiera puede cocinar.\" — Cualquiera puede salir de un mal momento. Incluido tú."
   },
   {
-    emoji: "🦋",
-    title: "Nuevas alas para volar",
-    text: "El dolor te está enseñando lo que no volverás a tolerar y lo mucho que mereces ser cuidado/a."
+    emoji: "🧊",
+    title: "Elsa tenía razón",
+    text: "\"Let it go.\" — Suelta lo que no puedes controlar. El frío ya pasó."
   },
   {
-    emoji: "🍵",
-    title: "Un respiro para tu corazón",
-    text: "Coloca las manos sobre tu regazo, cierra los ojos un segundo y siente cómo la calma entra."
+    emoji: "🎬",
+    title: "Rocky Balboa mode",
+    text: "\"No importa cuán duro te golpeen, sino cuánto aguantas y sigues avanzando.\" — Y tú sigues aquí."
   },
   {
-    emoji: "🛡️",
-    title: "Tu espacio inexpugnable",
-    text: "Nada de afuera puede lastimarte en este instante si decides proteger tu paz mental."
+    emoji: "🦁",
+    title: "Hakuna Matata",
+    text: "\"Vive y deja vivir.\" — No hay problema que dure cien años. Timón y Pumba approven."
   },
   {
-    emoji: "🌻",
-    title: "Cultiva la paciencia contigo",
-    text: "Sanar no es una línea recta; tiene curvas y pausas. Respeta tu propio ritmo."
+    emoji: "🤖",
+    title: "WALL-E vibes",
+    text: "Hasta un robotito abandonado en un mundo destruido encontró amor y esperanza. Tú puedes con esto."
   },
   {
-    emoji: "🏔️",
-    title: "La cumbre llegará",
-    text: "La subida puede ser empinada y cansada, pero la vista desde arriba valdrá todo el esfuerzo."
+    emoji: "🏴‍☠️",
+    title: "Jack Sparrow diría",
+    text: "\"El problema no es el problema. El problema es tu actitud ante el problema.\" — Savvy?"
+  },
+
+  // ── Memes & Cultura Gen Z ────────────────────────────────────────────────
+  {
+    emoji: "🔥",
+    title: "This is fine",
+    text: "A veces todo está en llamas y está bien reconocerlo. Pero hey, el perrito sobrevivió y tú también lo harás."
   },
   {
-    emoji: "🌊",
-    title: "Limpia tus pensamientos",
-    text: "Imagina que cada ola que rompe se lleva consigo una preocupación que ya no necesitas cargar."
+    emoji: "💅",
+    title: "Main character energy",
+    text: "Estás en tu arco de redención. Los main characters siempre pasan por un momento difícil antes del glow up."
   },
   {
-    emoji: "🌱",
-    title: "Creciendo en silencio",
-    text: "Aunque sientas que nada avanza, por dentro estás aprendiendo a sostenerte con más entereza."
+    emoji: "🧠",
+    title: "El cerebro no siempre tiene razón",
+    text: "Tu mente dice cosas horribles a veces. No le hagas caso a todo — es como Twitter, no todo es real."
   },
   {
-    emoji: "💖",
-    title: "Amor propio en cada respiro",
-    text: "Cuidarte en los días grises es la forma más pura de decirte que te importas."
+    emoji: "👑",
+    title: "Periodt.",
+    text: "Eres válido/a, eres suficiente, eres importante. Y eso no está a debate. Periodt."
   },
   {
-    emoji: "🕊️",
-    title: "Vuela por encima del caos",
-    text: "Mira tus problemas desde la altura de quien sabe que la vida es mucho más grande que este mal rato."
+    emoji: "🐸",
+    title: "But that's none of my business",
+    text: "Lo que opinen los demás de ti no te define. Tú sigue tomando tu té y brillando."
   },
   {
-    emoji: "🌟",
-    title: "Una chispa de esperanza basta",
-    text: "Solo necesitas un gramo de fe en que las cosas pueden mejorar para seguir caminando."
+    emoji: "🫶",
+    title: "Self care no es egoísmo",
+    text: "Ponerte primero no es ser egoísta. Es poner tu máscara de oxígeno antes de ayudar a otros. Based."
   },
   {
-    emoji: "🧘",
-    title: "Habita tu presente",
-    text: "El pasado ya no puede tocarte y el futuro aún no existe. En este segundo exacto, estás bien."
-  },
-  {
-    emoji: "🌈",
-    title: "Los colores volverán a aparecer",
-    text: "La vida recuperará su brillo y sabor. No te des por vencido/a antes de ver la luz de nuevo."
-  },
-  {
-    emoji: "🕯️",
-    title: "Ilumina un paso a la vez",
-    text: "No intentes solucionar el mes que viene. Solo piensa en lo que harás en la próxima media hora."
-  },
-  {
-    emoji: "🌸",
-    title: "Suaviza tu diálogo interno",
-    text: "Háblate como le hablarías a un niño pequeño que tiene miedo: con protección y dulzura."
-  },
-  {
-    emoji: "⚓",
-    title: "Tu centro de gravedad",
-    text: "Pon los pies planos sobre el piso. Siente la firmeza de la tierra que te sostiene."
-  },
-  {
-    emoji: "🌿",
-    title: "La naturaleza sabe sanar",
-    text: "Así como una herida en la piel cicatriza sola con el tiempo, tu mente también tiene la capacidad de sanar."
-  },
-  {
-    emoji: "✨",
-    title: "Cree en tu mañana",
-    text: "Hay conversaciones felices que todavía no has tenido y risas que aún te falta compartir."
-  },
-  {
-    emoji: "☀️",
-    title: "El calor del autocuidado",
-    text: "Bebe un vaso de agua, ponte ropa cómoda y recuerda que tu vida es sagrada."
-  },
-  {
-    emoji: "🤍",
-    title: "La paz no pide permiso",
-    text: "Reclama tu derecho a no angustiarte por lo que escapa a tus manos. Déjalo ir."
-  },
-  {
-    emoji: "🌌",
-    title: "Eres parte de algo inmenso",
-    text: "En este vasto universo, tu existencia tiene un propósito que se va revelando paso a paso."
-  },
-  {
-    emoji: "🍃",
-    title: "Desprenderse para renovarse",
-    text: "A veces hay que soltar ideas fijas para permitir que nuevas oportunidades de bienestar entren."
-  },
-  {
-    emoji: "🦋",
-    title: "Confía en tu metamorfosis",
-    text: "Los momentos más desafiantes suelen ser los que nos enseñan nuestra verdadera fortaleza interior."
-  },
-  {
-    emoji: "🍵",
-    title: "Una pausa que nutre",
-    text: "Detente. No tienes que responder mensajes ni resolver nada en este instante. Solo respira."
-  },
-  {
-    emoji: "🛡️",
-    title: "Seguridad y contención",
-    text: "Recuerda que tus contactos prioritarios y las líneas de emergencia siempre están a un toque."
-  },
-  {
-    emoji: "🌻",
-    title: "Abierto/a a la luz",
-    text: "Deja que el aire fresco entre en tu habitación y en tus pensamientos."
-  },
-  {
-    emoji: "🏔️",
-    title: "La quietud de las cumbres",
-    text: "Por encima de las nubes de tormenta, el cielo siempre permanece azul y sereno."
-  },
-  {
-    emoji: "🌊",
-    title: "La calma después de la marea",
-    text: "Toda marea alta retrocede. Este pico de malestar también bajará."
-  },
-  {
-    emoji: "🌱",
-    title: "La fuerza de lo pequeño",
-    text: "Un pequeño respiro consciente puede cambiar el rumbo de todo tu día."
-  },
-  {
-    emoji: "💖",
-    title: "Eres digno/a de cuidado",
-    text: "No necesitas ganarte el derecho a estar bien. Ya eres valioso/a por el simple hecho de existir."
-  },
-  {
-    emoji: "🕊️",
-    title: "Paz para tu mente",
-    text: "Suelta los 'hubiera' y los 'qué pasará si'. Concéntrate en la respiración que tienes ahora."
-  },
-  {
-    emoji: "🌟",
-    title: "Tu luz interior no se apaga",
-    text: "A veces solo parpadea un poco, pero el fuego de tu vida sigue encendido y fuerte."
-  },
-  {
-    emoji: "🧘",
-    title: "Quietud que reconforta",
-    text: "Inhala contando 4 segundos... mantén el aire 4 segundos... exhala suavemente en 4 segundos."
+    emoji: "💀",
+    title: "Era broma, estoy bien",
+    text: "A veces nos reímos del dolor y eso está ok. El humor es una herramienta de supervivencia válida y poderosa."
   },
   {
     emoji: "🌈",
-    title: "El arcoíris tras la lluvia",
-    text: "No hay arcoíris sin tormenta previa. Este capítulo difícil también dará paso a la calma."
+    title: "Plot twist incoming",
+    text: "Tu vida está a punto de dar un plot twist épico. Los mejores personajes tienen los peores arcos antes del glow up."
   },
   {
-    emoji: "🕯️",
-    title: "Tu llama interior",
-    text: "Aunque sople el viento, cubre tu vela con las manos y confía en tu calor interno."
+    emoji: "🤳",
+    title: "Unfiltered y real",
+    text: "No necesitas un filtro para ser increíble. Tu versión más real y vulnerable también es hermosa."
   },
   {
-    emoji: "🌸",
-    title: "Brotando a tu tiempo",
-    text: "No te compares con nadie más. Tu proceso de sanación es único, valioso y respetable."
+    emoji: "🧃",
+    title: "Tómate un juguito",
+    text: "A veces la solución empieza por lo básico: agua, comida, descanso. No olvides los fundamentals."
+  },
+
+  // ── Canciones & Música ───────────────────────────────────────────────────
+  {
+    emoji: "🎶",
+    title: "Coldplay tenía razón",
+    text: "\"Nobody said it was easy, but no one ever said it would be this hard.\" — Nadie dijo fácil, pero tú puedes."
   },
   {
-    emoji: "⚓",
-    title: "Firmeza en la adversidad",
-    text: "Ancla tus pensamientos en el presente: aquí hay suelo firme y aire para respirar."
+    emoji: "🎧",
+    title: "Imagine Dragons energy",
+    text: "\"Whatever it takes.\" — Lo que sea necesario para estar bien. Esa es la actitud."
   },
   {
-    emoji: "🌿",
-    title: "Aire puro para el alma",
-    text: "Sal a mirar el cielo unos instantes o abre la ventana. Siente el viento en tu rostro."
+    emoji: "🎵",
+    title: "Bad Bunny modo",
+    text: "\"Yo perreo sola.\" — Celebra tu independencia. Tú eres tu mejor compañía."
   },
   {
-    emoji: "✨",
-    title: "Un motivo para sonreír vendrá",
-    text: "Puede ser el canto de un pájaro, una comida deliciosa o un mensaje cariñoso. Mantén el corazón abierto."
+    emoji: "🎤",
+    title: "Shakira wisdom",
+    text: "\"Las mujeres ya no lloran, las mujeres facturan.\" — Sal más fuerte de esta."
   },
   {
-    emoji: "☀️",
-    title: "El brillo de tu resiliencia",
-    text: "Haber llegado hasta este día demuestra cuánta fuerza habita en ti. Eres admirable."
+    emoji: "🎹",
+    title: "Alicia Keys vibes",
+    text: "\"Even when the thunder and the storm begins, I'll be standing strong like a tree.\" — Firme como árbol."
   },
   {
-    emoji: "🤍",
-    title: "Compasión infinita",
-    text: "No te castigues por sentirte mal. Sentir es humano, y pedir ayuda es de sabios."
+    emoji: "🎸",
+    title: "Residente lo dijo",
+    text: "\"Yo soy la estrella que va contra el tráfico.\" — No sigas la corriente si la corriente no va a buen lugar."
   },
   {
-    emoji: "🌌",
-    title: "Bajo el manto de las estrellas",
-    text: "Todo pasa, todo se transforma. Tu dolor también encontrará su cauce y su alivio."
-  },
-  {
-    emoji: "🍃",
-    title: "La levedad de ser tú",
-    text: "Suelta las armaduras y las expectativas ajenas. Aquí puedes simplemente ser y descansar."
-  },
-  {
-    emoji: "🦋",
-    title: "El vuelo de la libertad",
-    text: "Llegará el momento en que recordarás este día y agradecerás haberte quedado a luchar."
-  },
-  {
-    emoji: "🍵",
-    title: "Un bálsamo para tu espíritu",
-    text: "Tómate una infusión tibia o un vaso de agua con calma. Cuida tu templo físico hoy."
-  },
-  {
-    emoji: "🛡️",
-    title: "Tu fortaleza secreta",
-    text: "Nadie conoce todo lo que has tenido que superar, pero nosotros creemos firmemente en ti."
-  },
-  {
-    emoji: "🌻",
-    title: "Girasol en la penumbra",
-    text: "Incluso en días nublados, los girasoles se miran entre sí para compartir energía. Comparte tu sentir con alguien."
-  },
-  {
-    emoji: "🏔️",
-    title: "Serenidad inamovible",
-    text: "Los pensamientos no son hechos. Solo son nubes que cruzan tu cielo mental."
+    emoji: "🎶",
+    title: "Calle 13 energy",
+    text: "\"Soy una fábrica de humo. Mano de obra campesina pa' tu consumo.\" — Tu fuerza viene de adentro."
   },
   {
     emoji: "🌊",
-    title: "Sumérgete en la calma",
-    text: "Imagina que el agua fresca se lleva cualquier angustia de tus hombros y de tu pecho."
+    title: "Oceano de Drexler",
+    text: "\"No hay nada más bello que lo que nunca he tenido.\" — Lo mejor todavía no llega. Espéralo."
+  },
+  {
+    emoji: "🎵",
+    title: "Celia Cruz siempre",
+    text: "\"La vida es un carnaval, y es más bello vivir cantando.\" — ¡Azúcar! Dale con ganas."
+  },
+  {
+    emoji: "💃",
+    title: "Selena vibra alto",
+    text: "\"Bidi bidi bom bom.\" — Tu corazón sigue latiendo y eso ya es motivo de fiesta."
+  },
+
+  // ── Dichos Populares & Sabiduría ─────────────────────────────────────────
+  {
+    emoji: "☀️",
+    title: "No hay mal que dure 100 años",
+    text: "Ni cuerpo que lo resista. Esto pasará. La abuela tenía razón."
+  },
+  {
+    emoji: "🌊",
+    title: "Después de la tormenta...",
+    text: "...viene la calma. Y después de la calma, un atardecer bien bonito. Ya viene."
+  },
+  {
+    emoji: "🐓",
+    title: "Al que madruga...",
+    text: "Dios lo ayuda. Pero si hoy no puedes madrugar, Dios te ayuda igual. Descansa."
   },
   {
     emoji: "🌱",
-    title: "Renovación constante",
-    text: "Cada segundo es una nueva oportunidad para inhalar profundo y reiniciar con calma."
+    title: "Camarón que se duerme...",
+    text: "Hoy NO aplica. Hoy sí puedes dormirte. Tu cuerpo lo necesita. Descansa, camarón."
   },
   {
-    emoji: "💖",
-    title: "Eres un ser irremplazable",
-    text: "Tu voz, tus ideas y tu cariño hacen falta en este mundo. Protégete y cuídate mucho."
-  },
-  {
-    emoji: "🕊️",
-    title: "Alas de libertad",
-    text: "La pesadez en el pecho se irá desvaneciendo conforme regules tu respiración paso a paso."
-  },
-  {
-    emoji: "🌟",
-    title: "Guía en la oscuridad",
-    text: "Cuando no sepas qué hacer, solo haz la siguiente cosa correcta: respira y ponte a salvo."
-  },
-  {
-    emoji: "🧘",
-    title: "Atención plena",
-    text: "Siente la temperatura de tus manos, el contacto con tu ropa y la calma de este instante."
-  },
-  {
-    emoji: "🌈",
-    title: "El horizonte te espera",
-    text: "Hay amaneceres hermosos esperando por ti. No te pierdas lo que la vida aún tiene que darte."
-  },
-  {
-    emoji: "🕯️",
-    title: "Luz que nunca se apaga",
-    text: "Incluso en el momento de mayor incertidumbre, tu deseo de vivir y estar bien prevalecerá."
-  },
-  {
-    emoji: "🌸",
-    title: "Florecimiento paciente",
-    text: "La primavera no se apresura para abrir cada flor. Tú tampoco te apresures; todo sanará."
-  },
-  {
-    emoji: "⚓",
-    title: "Anclaje seguro en Ancla",
-    text: "Recuerda que esta aplicación siempre estará aquí contigo, disponible offline y sin juicios."
+    emoji: "💪",
+    title: "Lo que no te mata...",
+    text: "Te hace más fuerte. Y míralo desde otro ángulo: sigues aquí, así que eres más fuerte."
   },
   {
     emoji: "🌿",
-    title: "Raíces que abrazan la tierra",
-    text: "Siente la seguridad del suelo bajo tus pies. Estás aquí, estás presente y estás a salvo."
+    title: "Más vale tarde que nunca",
+    text: "Nunca es tarde para pedir ayuda, para respirar profundo o para empezar de nuevo."
   },
   {
-    emoji: "✨",
-    title: "Tu historia continúa",
-    text: "Este momento difícil no es el final de tu libro; es solo un capítulo duro que estás superando hoy."
+    emoji: "🌤️",
+    title: "Mañana será otro día",
+    text: "Y vendrá con nuevas oportunidades, nueva energía y nuevas razones para sonreír."
   },
   {
-    emoji: "☀️",
-    title: "El nuevo amanecer",
-    text: "Cada mañana es una promesa cumplida de que la oscuridad no es eterna. Sigue adelante con fe."
+    emoji: "🍀",
+    title: "El que persevera alcanza",
+    text: "Y tú ya estás perseverando solo por estar aquí. Eso cuenta. Eso vale."
   },
   {
-    emoji: "🤍",
-    title: "Paz, serenidad y refugio",
-    text: "Descansa tu mente. Todo estará bien. Estás a salvo y no estás solo/a."
+    emoji: "🏠",
+    title: "Cada quien sabe dónde le aprieta el zapato",
+    text: "Solo tú sabes lo que sientes, y es válido. No dejes que nadie minimice tu sentir."
+  },
+  {
+    emoji: "🌺",
+    title: "No por mucho madrugar...",
+    text: "Amanece más temprano. No te presiones. Las cosas llegan cuando tienen que llegar."
+  },
+
+  // ── Humor Suave & Realismo Positivo ──────────────────────────────────────
+  {
+    emoji: "🐱",
+    title: "Los gatos lo saben",
+    text: "Si un gato puede dormir 18 horas y ser adorado, tú puedes tomar un break sin culpa."
+  },
+  {
+    emoji: "🍕",
+    title: "La pizza nunca falla",
+    text: "Cuando todo se siente difícil, recuerda: existe la pizza, el chocolate y los abrazos. No todo está perdido."
+  },
+  {
+    emoji: "🌮",
+    title: "Un taco cura el alma",
+    text: "Okay, no literalmente. Pero la comida que te gusta sí libera endorfinas. Consiéntete hoy."
+  },
+  {
+    emoji: "🐶",
+    title: "Be more dog",
+    text: "Los perros viven en el ahora, celebran las cosas pequeñas y siempre están happy de verte. Aprende de ellos."
+  },
+  {
+    emoji: "🛋️",
+    title: "El sofá es tu aliado",
+    text: "No hay nada de malo en un día de sofá, cobija y tu serie favorita. Tu salud mental te lo agradecerá."
+  },
+  {
+    emoji: "🎮",
+    title: "Checkpoint guardado",
+    text: "En los videojuegos puedes volver al último checkpoint. En la vida, hoy es tu checkpoint. Desde aquí avanzas."
+  },
+  {
+    emoji: "🫧",
+    title: "Burbuja de paz",
+    text: "Imagina que estás dentro de una burbuja donde nada malo puede tocarte. Quédate ahí un rato."
+  },
+  {
+    emoji: "🧸",
+    title: "Tu inner child te necesita",
+    text: "Ese niño/a interior que fuiste solo quiere sentirse seguro/a. Dale un abrazo imaginario."
+  },
+  {
+    emoji: "🌙",
+    title: "La luna también tiene fases",
+    text: "Y nadie le dice que está mal por no brillar al 100% todo el tiempo. Tú también puedes tener fases."
+  },
+  {
+    emoji: "☕",
+    title: "Primero el cafecito",
+    text: "Muchos problemas se ven más pequeños después de un café caliente y unos minutos de paz."
+  },
+
+  // ── Motivación Real & Empowerment ────────────────────────────────────────
+  {
+    emoji: "🏋️",
+    title: "Rep mental completada",
+    text: "Abrir esta app cuando te sientes mal es como ir al gym emocional. Ya hiciste tu primera rep."
+  },
+  {
+    emoji: "🚀",
+    title: "Modo lanzamiento",
+    text: "Los cohetes gastan casi toda su energía solo para despegar. La parte difícil ya casi termina."
+  },
+  {
+    emoji: "🎯",
+    title: "Focus en lo que SÍ controlas",
+    text: "Tu respiración, tu siguiente paso, a quién le hablas. Lo demás se resuelve después."
+  },
+  {
+    emoji: "⚡",
+    title: "Energía recargable",
+    text: "Hasta los celulares se agotan. Ponerte en modo avión no es rendirte, es recargarte."
+  },
+  {
+    emoji: "🌍",
+    title: "7 billones de personas",
+    text: "Y muchas de ellas pasaron por algo similar a lo tuyo y salieron adelante. No eres la excepción."
+  },
+  {
+    emoji: "🎪",
+    title: "El circo de la vida",
+    text: "A veces eres el malabarista, a veces la red de seguridad. Hoy puedes ser la red. Atrápate."
+  },
+  {
+    emoji: "🧩",
+    title: "Pieza por pieza",
+    text: "No necesitas ver el puzzle completo. Solo coloca la siguiente pieza y el panorama aparece solo."
+  },
+  {
+    emoji: "🎲",
+    title: "Los dados aún ruedan",
+    text: "Mientras el juego no termine, siempre puede caer el número ganador. Sigue tirando."
+  },
+  {
+    emoji: "🌊",
+    title: "Surfea la ola",
+    text: "No puedes parar las olas, pero puedes aprender a surfearlas. Este momento es tu tabla."
+  },
+  {
+    emoji: "🏆",
+    title: "Ya ganaste algo hoy",
+    text: "Abriste esta app. Reconociste que necesitas un momento. Eso es madurez emocional pura."
+  },
+
+  // ── Frases Warm & Reconfortantes ─────────────────────────────────────────
+  {
+    emoji: "🤗",
+    title: "Abrazo virtual activado",
+    text: "Si nadie te lo ha dicho hoy: estás haciendo un buen trabajo con lo que tienes. De verdad."
+  },
+  {
+    emoji: "🌸",
+    title: "Respira con las flores",
+    text: "Inhala como si olieras tu flor favorita. Exhala como si soplaras las velas de tu pastel. Repite."
+  },
+  {
+    emoji: "💫",
+    title: "Tu energía es contagiosa",
+    text: "Hay personas que extrañarían tu risa, tu voz y tus ocurrencias si no estuvieras. Quédate."
+  },
+  {
+    emoji: "🧡",
+    title: "Te mereces cosas bonitas",
+    text: "Un café bien hecho, una tarde sin prisa, una risa inesperada. Esas cosas vienen en camino."
+  },
+  {
+    emoji: "🌅",
+    title: "Cada atardecer es un logro",
+    text: "Llegaste al final de otro día. Eso no es poca cosa. Date crédito por eso."
+  },
+  {
+    emoji: "🫂",
+    title: "No tienes que ser fuerte siempre",
+    text: "Está bien llorar, está bien pedir ayuda, está bien decir 'hoy no puedo'. Eso también es fuerza."
+  },
+  {
+    emoji: "🎈",
+    title: "Ligereza en el corazón",
+    text: "No todo tiene que ser profundo y serio. A veces un meme tonto te salva el día, y eso cuenta."
   },
   {
     emoji: "🪴",
-    title: "Floreces desde adentro",
-    text: "Date el tiempo y el cariño que le darías a una planta delicada. La calma y la fuerza están creciendo en ti."
+    title: "Riega tu plantita interior",
+    text: "¿Ya tomaste agua? ¿Ya comiste algo? Los basics primero. Lo demás se arregla después."
+  },
+  {
+    emoji: "🎀",
+    title: "Eres una obra en progreso",
+    text: "Y las obras en progreso no se critican, se cuidan. Estás en construcción, no en destrucción."
+  },
+  {
+    emoji: "🌻",
+    title: "Brilla a tu propio ritmo",
+    text: "No todos los girasoles abren al mismo tiempo. Tu momento de brillar llegará cuando sea tu momento."
+  },
+
+  // ── Pop Culture & Random Wisdom ──────────────────────────────────────────
+  {
+    emoji: "🐢",
+    title: "El Maestro Oogway dice",
+    text: "\"El ayer es historia, el mañana es un misterio, pero el hoy es un regalo. Por eso se llama presente.\""
+  },
+  {
+    emoji: "📱",
+    title: "Touch grass (pero en serio)",
+    text: "Sal un momento, toca la hierba, mira el cielo. 5 minutitos de naturaleza resetean el cerebro."
+  },
+  {
+    emoji: "🎭",
+    title: "Shakespeare lo sabía",
+    text: "\"Nada es bueno ni malo, es el pensamiento el que lo hace así.\" — Dale chance a otro pensamiento."
+  },
+  {
+    emoji: "🧘",
+    title: "Buddha simplificado",
+    text: "\"El dolor es inevitable, el sufrimiento es opcional.\" — Elige no quedarte atrapado/a en el loop."
+  },
+  {
+    emoji: "🦎",
+    title: "Modo camaleón",
+    text: "Adaptarte no es perder tu esencia. Es demostrar que eres más versátil de lo que crees."
+  },
+  {
+    emoji: "🎬",
+    title: "Forrest Gump diría",
+    text: "\"La vida es como una caja de chocolates.\" — Y a veces te toca uno amargo, pero el siguiente puede ser tu favorito."
+  },
+  {
+    emoji: "🗿",
+    title: "Estoicismo express",
+    text: "No puedes controlar lo que pasa. Solo puedes controlar cómo reaccionas. Y ya estás reaccionando bien."
+  },
+  {
+    emoji: "🐝",
+    title: "Según la ciencia...",
+    text: "Las abejas no deberían poder volar por su aerodinámica. Pero lo hacen. Tú también puedes hacer lo \"imposible\"."
+  },
+  {
+    emoji: "🧋",
+    title: "Boba tea break",
+    text: "La vida es como el bubble tea: a veces hay sorpresas al fondo que no esperabas y terminan siendo lo mejor."
+  },
+  {
+    emoji: "🎮",
+    title: "Respawn en 3... 2... 1...",
+    text: "Game over es solo cuando dejas de jugar. Mientras sigas en la partida, siempre hay chance de clutch."
+  },
+
+  // ── Últimas 10: Mix Final de Todo ────────────────────────────────────────
+  {
+    emoji: "🌊",
+    title: "Moana tenía razón",
+    text: "\"¿Qué tan lejos llegaré?\" — Más lejos de lo que imaginas. El océano te llama."
+  },
+  {
+    emoji: "💎",
+    title: "Presión = diamante",
+    text: "Los diamantes se forman bajo presión extrema. Lo que sientes ahora te está puliendo."
+  },
+  {
+    emoji: "🌮",
+    title: "La regla de los tacos",
+    text: "Ningún problema en la historia se ha vuelto peor después de comer tacos. Es ciencia. Cómete uno."
+  },
+  {
+    emoji: "🫡",
+    title: "Salute, soldado",
+    text: "Has sobrevivido al 100% de tus peores días. Tu récord de supervivencia es impecable. Respeto."
+  },
+  {
+    emoji: "🧸",
+    title: "Winnie the Pooh sabiduría",
+    text: "\"Eres más valiente de lo que crees, más fuerte de lo que pareces y más listo/a de lo que piensas.\""
+  },
+  {
+    emoji: "🎶",
+    title: "Don't stop me now",
+    text: "Freddie Mercury cantaba eso mientras conquistaba el mundo. Pon esa canción y dale con todo."
+  },
+  {
+    emoji: "🌈",
+    title: "Somewhere over the rainbow",
+    text: "Hay un lugar donde los sueños que te atreves a soñar realmente se hacen realidad. No dejes de soñar."
+  },
+  {
+    emoji: "⚓",
+    title: "Ancla siempre contigo",
+    text: "Esta app funciona sin internet, sin datos, sin WiFi. Tu refugio digital siempre está aquí."
+  },
+  {
+    emoji: "🌟",
+    title: "Eres una edición limitada",
+    text: "No hay nadie exactamente como tú en 7 billones de personas. Eso te hace literalmente irremplazable."
+  },
+  {
+    emoji: "💛",
+    title: "Todo va a estar bien",
+    text: "No es una frase cliché, es una promesa estadística. La mayoría de los problemas se resuelven. Respira."
   }
 ];
