@@ -3,7 +3,7 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v5";
+const CACHE_NAME = "ancla-cache-v6";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -34,7 +34,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[SW] Pre-caching core offline assets for Ancla (v3)...");
+      console.log("[SW] Pre-caching core offline assets for Ancla (v6)...");
       return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting())
   );
@@ -88,14 +88,22 @@ self.addEventListener("fetch", (event) => {
 
 // Handle click on background notifications
 self.addEventListener("notificationclick", (event) => {
+  const tag = event.notification.tag;
   event.notification.close();
+
   event.waitUntil(
     clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
+      // If Ancla is already open in any window, focus it
       for (const client of clientList) {
         if (client.url && "focus" in client) {
+          // For comfort-quote notifications, post a message to rotate quote in UI
+          if (tag === "ancla-comfort-quote") {
+            client.postMessage({ type: "ROTATE_QUOTE" });
+          }
           return client.focus();
         }
       }
+      // Otherwise open a new window
       if (clients.openWindow) {
         return clients.openWindow("./");
       }
