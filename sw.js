@@ -3,7 +3,7 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v3";
+const CACHE_NAME = "ancla-cache-v4";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -20,7 +20,6 @@ const ASSETS_TO_CACHE = [
   "./js/audio/sound-engine.js",
   "./js/modules/sos.js",
   "./js/modules/crisis-mode.js",
-  "./js/modules/safety-plan.js",
   "./js/modules/calm-kit.js",
   "./js/modules/mood-tracker.js",
   "./js/modules/daily-milestones.js",

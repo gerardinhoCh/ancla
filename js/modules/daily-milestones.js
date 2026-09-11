@@ -90,7 +90,7 @@ export class DailyMilestonesModule {
     const pending = [];
     if (!this.milestones.mood) pending.push("Check-in de estado de ánimo");
     if (!this.milestones.calm) pending.push("Momento de respiración o calma");
-    if (!this.milestones.safety) pending.push("Revisión de plan de seguridad y anclajes");
+    if (!this.milestones.safety) pending.push("Conectar con tus anclajes o red de apoyo");
     return pending;
   }
 
@@ -268,17 +268,17 @@ export class DailyMilestonesModule {
             </button>
           </div>
 
-          <!-- Milestone 3: Safety Plan -->
+          <!-- Milestone 3: Anchors & Support -->
           <div class="milestone-row" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: var(--bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--border-subtle);">
             <div style="display: flex; align-items: center; gap: 10px;">
               <span style="font-size: 1.2rem;">${this.milestones.safety ? "✅" : "⭕"}</span>
               <div>
-                <strong style="font-size: 0.88rem; color: var(--text-primary);">Revisar Plan de Seguridad</strong>
-                <div style="font-size: 0.74rem; color: var(--text-muted);">Tus anclajes y contactos a mano</div>
+                <strong style="font-size: 0.88rem; color: var(--text-primary);">Conectar con tu Refugio</strong>
+                <div style="font-size: 0.74rem; color: var(--text-muted);">Tus anclajes de fotos/audio o red de apoyo</div>
               </div>
             </div>
-            <button class="btn btn-sm ${this.milestones.safety ? 'btn-ghost' : 'btn-secondary'}" onclick="document.querySelector('[data-tab=tab-plan]').click()">
-              ${this.milestones.safety ? "Hecho" : "Revisar"}
+            <button class="btn btn-sm ${this.milestones.safety ? 'btn-ghost' : 'btn-secondary'}" onclick="document.querySelector('[data-tab=tab-mood]').click()">
+              ${this.milestones.safety ? "Hecho" : "Conectar"}
             </button>
           </div>
         </div>

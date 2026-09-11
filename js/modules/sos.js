@@ -220,7 +220,7 @@ export class SOSModule {
     if (addBtn) {
       addBtn.addEventListener("click", () => {
         this.closeModal();
-        const tabBtn = document.querySelector('[data-tab="tab-plan"]');
+        const tabBtn = document.querySelector('[data-tab="tab-settings"]');
         if (tabBtn) tabBtn.click();
       });
     }

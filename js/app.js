@@ -7,7 +7,6 @@ import { storage } from "./db/storage.js";
 import { auth } from "./auth/biometric.js";
 import { sosModule } from "./modules/sos.js";
 import { crisisMode } from "./modules/crisis-mode.js";
-import { safetyPlan } from "./modules/safety-plan.js";
 import { calmKit } from "./modules/calm-kit.js";
 import { moodTracker } from "./modules/mood-tracker.js";
 import { anchorsModule } from "./modules/anchors.js";
@@ -21,7 +20,7 @@ class App {
   }
 
   async init() {
-    console.log("⚓ Inicializando Ancla: App de Plan de Seguridad y Apoyo en Crisis...");
+    console.log("⚓ Inicializando Ancla: Sistema de Contención y Apoyo en Crisis...");
 
     try {
       // 1. Initialize persistent storage
@@ -34,7 +33,6 @@ class App {
       // 3. Initialize Functional Modules
       await sosModule.init();
       await crisisMode.init();
-      await safetyPlan.init();
       await calmKit.init();
       await moodTracker.init();
       await anchorsModule.init();
@@ -67,9 +65,9 @@ class App {
       quickLaunchCalm.addEventListener("click", () => this.switchTab("tab-calm"));
     }
 
-    const quickLaunchPlan = document.getElementById("homeQuickPlanBtn");
-    if (quickLaunchPlan) {
-      quickLaunchPlan.addEventListener("click", () => this.switchTab("tab-plan"));
+    const quickLaunchNetwork = document.getElementById("homeQuickNetworkBtn");
+    if (quickLaunchNetwork) {
+      quickLaunchNetwork.addEventListener("click", () => this.switchTab("tab-settings"));
     }
 
     const quickLaunchCrisis = document.getElementById("homeQuickCrisisBtn");
@@ -104,6 +102,8 @@ class App {
     this.currentTab = tabId;
     if (tabId === "tab-home") {
       dailyMilestones.loadTodayMilestones().then(() => dailyMilestones.renderHomeMilestonesCard());
+    } else if (tabId === "tab-settings") {
+      therapistPortal.loadKeyContacts().then(() => therapistPortal.loadPersonalContacts()).then(() => therapistPortal.render());
     }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }

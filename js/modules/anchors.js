@@ -4,6 +4,7 @@
    ========================================================================== */
 
 import { storage } from "../db/storage.js";
+import { dailyMilestones } from "./daily-milestones.js";
 
 export class AnchorsModule {
   constructor() {
@@ -22,6 +23,9 @@ export class AnchorsModule {
   async renderAnchors() {
     if (!this.containerEl) return;
     const items = await storage.getAll("anchors");
+    if (items.length > 0) {
+      dailyMilestones.markMilestone("safety");
+    }
 
     if (items.length === 0) {
       this.containerEl.innerHTML = `
