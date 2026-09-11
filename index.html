@@ -4,10 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="description" content="Ancla: Aplicación offline-first de apoyo emocional, plan de seguridad Stanley-Brown y respuesta inmediata a crisis." />
-  <meta name="theme-color" content="#f0f4f8" />
+  <meta name="theme-color" content="#1a1b5e" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./icons/icon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./icons/icon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./icons/icon-180.png" />
   <title>Ancla · Plan de Seguridad y Apoyo en Crisis</title>
   <link rel="stylesheet" href="./css/design-tokens.css" />
   <link rel="stylesheet" href="./css/base.css" />
@@ -190,6 +194,140 @@
       .main-viewport { padding: 0; }
       .card { box-shadow: none; border: 1px solid #ddd; }
     }
+  
+    /* ── Cinematic Splash Screen ── */
+    #ancla-splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #12134a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      overflow: hidden;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    #ancla-splash.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #ancla-splash.hidden { display: none; }
+
+    /* Ambient glow rings */
+    .splash-glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .splash-glow-1 {
+      width: 340px; height: 340px;
+      background: radial-gradient(circle, rgba(130, 80, 255, 0.35) 0%, transparent 70%);
+      top: -80px; left: 50%; transform: translateX(-50%);
+      animation: glowPulse 4s ease-in-out infinite alternate;
+    }
+    .splash-glow-2 {
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(200, 80, 200, 0.25) 0%, transparent 70%);
+      bottom: 60px; right: -40px;
+      animation: glowPulse 5s ease-in-out infinite alternate-reverse;
+    }
+    @keyframes glowPulse {
+      from { opacity: 0.5; transform: translateX(-50%) scale(0.9); }
+      to   { opacity: 1;   transform: translateX(-50%) scale(1.1); }
+    }
+    .splash-glow-2 { animation: glowPulse2 5s ease-in-out infinite alternate-reverse; }
+    @keyframes glowPulse2 {
+      from { opacity: 0.4; transform: scale(0.85); }
+      to   { opacity: 1;   transform: scale(1.15); }
+    }
+
+    /* Logo zoom-in */
+    #splashLogo {
+      width: 148px;
+      height: 148px;
+      border-radius: 32px;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(0.3) translateY(20px);
+      transition: none;
+      filter: drop-shadow(0 0 40px rgba(150, 100, 255, 0.7));
+    }
+    #splashLogo.appear {
+      animation: logoZoomIn 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes logoZoomIn {
+      0%   { opacity: 0; transform: scale(0.3) translateY(30px); filter: drop-shadow(0 0 0px rgba(150,100,255,0)); }
+      60%  { opacity: 1; transform: scale(1.08) translateY(-6px); filter: drop-shadow(0 0 50px rgba(150,100,255,0.9)); }
+      100% { opacity: 1; transform: scale(1) translateY(0);       filter: drop-shadow(0 0 30px rgba(150,100,255,0.6)); }
+    }
+
+    /* Cinematic text lines */
+    .splash-line {
+      font-family: 'Inter', system-ui, sans-serif;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(14px);
+      letter-spacing: 0.01em;
+    }
+    .splash-line.show {
+      animation: lineAppear 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    @keyframes lineAppear {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .splash-tagline {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(180, 160, 255, 0.75);
+      margin-top: 10px;
+    }
+    .splash-headline {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.1;
+      margin-top: 6px;
+    }
+    .splash-sub {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: rgba(200, 190, 255, 0.7);
+      margin-top: 10px;
+      max-width: 260px;
+      line-height: 1.5;
+    }
+    /* Thin loading bar at bottom */
+    .splash-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(to right, #7c3aed, #c084fc, #f9a8d4);
+      border-radius: 0 2px 2px 0;
+      transition: width 2.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .splash-bar.run { width: 100%; }
+
+    /* Star particles */
+    .splash-particle {
+      position: absolute;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: white;
+      opacity: 0;
+      animation: particleFade 3s ease-in-out infinite;
+    }
+    @keyframes particleFade {
+      0%, 100% { opacity: 0; transform: translateY(0); }
+      50%       { opacity: 0.6; transform: translateY(-12px); }
+    }
   </style>
 </head>
 <body>
@@ -197,15 +335,38 @@
   <!-- ══════════════════════════════════════════════════════
        TOP HEADER
        ══════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════════════════
+       CINEMATIC SPLASH SCREEN
+       ══════════════════════════════════════════════════════ -->
+  <div id="ancla-splash" role="presentation" aria-hidden="true">
+    <!-- Ambient glow rings -->
+    <div class="splash-glow splash-glow-1"></div>
+    <div class="splash-glow splash-glow-2"></div>
+
+    <!-- Star particles -->
+    <div class="splash-particle" style="top:18%; left:12%; animation-delay:0.2s; animation-duration:2.8s;"></div>
+    <div class="splash-particle" style="top:25%; left:80%; animation-delay:0.9s; animation-duration:3.4s; width:4px; height:4px;"></div>
+    <div class="splash-particle" style="top:60%; left:8%;  animation-delay:1.4s; animation-duration:2.5s;"></div>
+    <div class="splash-particle" style="top:70%; left:88%; animation-delay:0.5s; animation-duration:3.1s; width:5px; height:5px;"></div>
+    <div class="splash-particle" style="top:85%; left:30%; animation-delay:1.8s; animation-duration:2.9s;"></div>
+    <div class="splash-particle" style="top:10%; left:60%; animation-delay:2.1s; animation-duration:3.6s; width:2px; height:2px;"></div>
+
+    <!-- Logo -->
+    <img id="splashLogo" src="./logo.png" alt="Ancla" />
+
+    <!-- Cinematic text sequence -->
+    <p class="splash-line splash-tagline" id="splashTag">Tu espacio seguro</p>
+    <h2 class="splash-line splash-headline" id="splashHead">Estás a salvo.</h2>
+    <p class="splash-line splash-sub"   id="splashSub">Las crisis son temporales.<br>Aquí siempre hay un ancla.</p>
+
+    <!-- Progress bar -->
+    <div class="splash-bar" id="splashBar"></div>
+  </div>
+
   <header class="app-header" role="banner">
     <div class="brand-container">
-      <div class="brand-icon" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="5" r="3"></circle>
-          <line x1="12" y1="8" x2="12" y2="21"></line>
-          <path d="M5 12H19"></path>
-          <path d="M5 12a7 7 0 0 0 14 0"></path>
-        </svg>
+      <div class="brand-icon" aria-hidden="true" style="background: none; padding: 0; width: 36px; height: 36px; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+        <img src="./logo.png" alt="" width="36" height="36" style="width:36px; height:36px; object-fit:cover; border-radius:10px; display:block;" />
       </div>
       <div>
         <h1 class="brand-title">Ancla</h1>
@@ -739,5 +900,48 @@
   </nav>
 
   <script type="module" src="./js/app.js"></script>
+
+  <!-- Cinematic splash controller -->
+  <script>
+    (function() {
+      const SPLASH_KEY = 'ancla_splash_shown';
+      const splash    = document.getElementById('ancla-splash');
+      const logo      = document.getElementById('splashLogo');
+      const tag       = document.getElementById('splashTag');
+      const head      = document.getElementById('splashHead');
+      const sub       = document.getElementById('splashSub');
+      const bar       = document.getElementById('splashBar');
+
+      // Always show on load (remove check if you want first-time only):
+      // const isFirst = !sessionStorage.getItem(SPLASH_KEY);
+      // if (!isFirst) { splash.classList.add('hidden'); return; }
+
+      sessionStorage.setItem(SPLASH_KEY, '1');
+
+      // Sequence timings (ms)
+      const T = {
+        logoAppear : 100,
+        barStart   : 300,
+        tagAppear  : 900,
+        headAppear : 1600,
+        subAppear  : 2200,
+        fadeOut    : 3600,
+        remove     : 4500,
+      };
+
+      function at(delay, fn) { setTimeout(fn, delay); }
+
+      at(T.logoAppear, () => logo.classList.add('appear'));
+      at(T.barStart,   () => bar.classList.add('run'));
+      at(T.tagAppear,  () => tag.classList.add('show'));
+      at(T.headAppear, () => head.classList.add('show'));
+      at(T.subAppear,  () => sub.classList.add('show'));
+      at(T.fadeOut,    () => splash.classList.add('fade-out'));
+      at(T.remove,     () => {
+        splash.classList.add('hidden');
+        splash.setAttribute('aria-hidden', 'true');
+      });
+    })();
+  </script>
 </body>
 </html>

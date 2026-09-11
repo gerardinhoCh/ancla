@@ -6,17 +6,21 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#f0f4f8",
-  "theme_color": "#f0f4f8",
+  "background_color": "#1a1b5e",
+  "theme_color": "#1a1b5e",
   "lang": "es-EC",
   "categories": ["health", "medical", "lifestyle"],
   "icons": [
-    {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2314b8a6'/><path d='M50 20 v60 M30 50 h40 M30 70 q20 15 40 0' stroke='%23ffffff' stroke-width='8' fill='none' stroke-linecap='round'/></svg>",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
+    { "src": "./icons/icon-72.png",  "sizes": "72x72",   "type": "image/png" },
+    { "src": "./icons/icon-96.png",  "sizes": "96x96",   "type": "image/png" },
+    { "src": "./icons/icon-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "./icons/icon-144.png", "sizes": "144x144", "type": "image/png" },
+    { "src": "./icons/icon-152.png", "sizes": "152x152", "type": "image/png" },
+    { "src": "./icons/icon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icons/icon-256.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "./icons/icon-384.png", "sizes": "384x384", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
   ],
   "shortcuts": [
     {
@@ -24,26 +28,14 @@
       "short_name": "SOS",
       "description": "Llamada de auxilio inmediata",
       "url": "./index.html#sos",
-      "icons": [
-        {
-          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%23ef4444'/><text x='50' y='65' font-size='40' font-weight='bold' text-anchor='middle' fill='%23ffffff'>SOS</text></svg>",
-          "sizes": "96x96",
-          "type": "image/svg+xml"
-        }
-      ]
+      "icons": [{ "src": "./icons/icon-96.png", "sizes": "96x96", "type": "image/png" }]
     },
     {
       "name": "Respirar Ahora",
       "short_name": "Calma",
       "description": "Ejercicios de respiración guiada de emergencia",
       "url": "./index.html#calm",
-      "icons": [
-        {
-          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='48' fill='%2306b6d4'/><circle cx='50' cy='50' r='25' fill='%23ffffff'/></svg>",
-          "sizes": "96x96",
-          "type": "image/svg+xml"
-        }
-      ]
+      "icons": [{ "src": "./icons/icon-96.png", "sizes": "96x96", "type": "image/png" }]
     }
   ]
 }

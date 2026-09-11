@@ -3,11 +3,26 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v6";
+const CACHE_NAME = "ancla-cache-v7";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
   "./manifest.webmanifest",
+  "./favicon.ico",
+  "./logo.png",
+  "./icons/icon-16.png",
+  "./icons/icon-32.png",
+  "./icons/icon-48.png",
+  "./icons/icon-72.png",
+  "./icons/icon-96.png",
+  "./icons/icon-128.png",
+  "./icons/icon-144.png",
+  "./icons/icon-152.png",
+  "./icons/icon-180.png",
+  "./icons/icon-192.png",
+  "./icons/icon-256.png",
+  "./icons/icon-384.png",
+  "./icons/icon-512.png",
   "./css/design-tokens.css",
   "./css/base.css",
   "./css/components.css",
@@ -34,7 +49,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[SW] Pre-caching core offline assets for Ancla (v6)...");
+      console.log("[SW] Pre-caching core offline assets for Ancla (v7)...");
       return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting())
   );
