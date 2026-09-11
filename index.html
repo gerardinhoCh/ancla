@@ -246,12 +246,17 @@
     <section id="tab-home" class="tab-view active" aria-labelledby="homeHeading">
       <h2 id="homeHeading" class="sr-only">Inicio y Resumen</h2>
 
-      <!-- Reassurance Banner -->
-      <div class="reassurance-banner">
-        <span style="font-size: 2.2rem; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));">🕊️</span>
-        <div>
-          <h3>Estás a salvo ahora mismo</h3>
-          <p style="font-size: 0.87rem; line-height: 1.55;">
+      <!-- Reassurance Banner (120 Rotating Comfort Quotes) -->
+      <div class="reassurance-banner" id="reassuranceBanner" title="Toca para leer otra frase de aliento" style="cursor: pointer; position: relative;">
+        <span id="reassuranceEmoji" style="font-size: 2.2rem; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1)); transition: transform 0.3s ease;">🕊️</span>
+        <div style="flex: 1;">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+            <h3 id="reassuranceTitle" style="transition: opacity 0.25s ease;">Estás a salvo ahora mismo</h3>
+            <button id="refreshQuoteBtn" class="btn btn-sm btn-ghost" title="Leer otra frase" style="padding: 2px 8px; font-size: 0.72rem; border-radius: var(--radius-full); background: rgba(255,255,255,0.7); flex-shrink: 0; border: 1px solid rgba(45, 212, 191, 0.3);">
+              ✨ Otra frase
+            </button>
+          </div>
+          <p id="reassuranceText" style="font-size: 0.87rem; line-height: 1.55; margin-top: 4px; transition: opacity 0.25s ease;">
             Este es tu refugio privado. Las crisis son temporales — siempre pasan. Hay ayuda disponible.
           </p>
         </div>

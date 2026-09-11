@@ -3,7 +3,7 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v4";
+const CACHE_NAME = "ancla-cache-v5";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -14,6 +14,7 @@ const ASSETS_TO_CACHE = [
   "./css/crisis-mode.css",
   "./css/calm-kit.css",
   "./js/config.js",
+  "./js/data/comfort-quotes.js",
   "./js/db/storage.js",
   "./js/crypto/encryption.js",
   "./js/auth/biometric.js",
@@ -25,6 +26,7 @@ const ASSETS_TO_CACHE = [
   "./js/modules/daily-milestones.js",
   "./js/modules/anchors.js",
   "./js/modules/therapist-portal.js",
+  "./js/modules/comfort-quotes.js",
   "./js/app.js"
 ];
 

@@ -12,6 +12,7 @@ import { moodTracker } from "./modules/mood-tracker.js";
 import { anchorsModule } from "./modules/anchors.js";
 import { therapistPortal } from "./modules/therapist-portal.js";
 import { dailyMilestones } from "./modules/daily-milestones.js";
+import { comfortQuotes } from "./modules/comfort-quotes.js";
 
 class App {
   constructor() {
@@ -38,6 +39,7 @@ class App {
       await anchorsModule.init();
       await therapistPortal.init();
       await dailyMilestones.init();
+      comfortQuotes.init();
 
       // 4. Setup Navigation & UI Listeners
       this.setupNavigation();
