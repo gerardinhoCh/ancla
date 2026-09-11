@@ -12,6 +12,7 @@ import { calmKit } from "./modules/calm-kit.js";
 import { moodTracker } from "./modules/mood-tracker.js";
 import { anchorsModule } from "./modules/anchors.js";
 import { therapistPortal } from "./modules/therapist-portal.js";
+import { dailyMilestones } from "./modules/daily-milestones.js";
 
 class App {
   constructor() {
@@ -38,6 +39,7 @@ class App {
       await moodTracker.init();
       await anchorsModule.init();
       await therapistPortal.init();
+      await dailyMilestones.init();
 
       // 4. Setup Navigation & UI Listeners
       this.setupNavigation();
@@ -100,6 +102,9 @@ class App {
     });
 
     this.currentTab = tabId;
+    if (tabId === "tab-home") {
+      dailyMilestones.loadTodayMilestones().then(() => dailyMilestones.renderHomeMilestonesCard());
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 

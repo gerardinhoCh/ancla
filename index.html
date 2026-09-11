@@ -257,6 +257,9 @@
         </div>
       </div>
 
+      <!-- Daily Milestones Tracker & Gentle Reminders -->
+      <div id="dailyMilestonesContainer"></div>
+
       <!-- Quick Actions -->
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-bottom: var(--space-4);">
         <button id="homeQuickCrisisBtn" class="quick-action-card card-rose" style="margin-bottom: 0;">
@@ -272,33 +275,38 @@
         </button>
       </div>
 
-      <!-- Hotlines Card -->
+      <!-- Hotlines Card: 911 Gratuito First -->
       <div class="card">
         <div class="card-header">
           <div class="card-title">
-            <span class="card-icon" style="background: #fff1f2;">📞</span>
-            Ayuda Inmediata
+            <span class="card-icon" style="background: #fee2e2;">🚨</span>
+            Líneas de Emergencia Inmediata
           </div>
-          <span style="font-size: 0.72rem; color: var(--text-muted); font-weight: 600;">Ecuador</span>
+          <span style="font-size: 0.72rem; color: #dc2626; font-weight: 700;">Gratuito 24/7</span>
         </div>
 
         <div style="display: flex; flex-direction: column; gap: 8px;">
-          <a href="tel:171" class="hotline-bubble" style="background: #fff1f2; border-color: rgba(244, 63, 94, 0.2);">
-            <div class="hb-icon" style="background: #fecdd3;">🩺</div>
-            <div>
-              <div class="hb-name">Línea 171 · Opción 6</div>
-              <div class="hb-desc">Salud Mental · MSP Ecuador · Gratuito 24/7</div>
+          <!-- 1ª Opción: 911 Gratuito -->
+          <a href="tel:911" class="hotline-bubble" style="background: #fff1f2; border: 1.5px solid rgba(239, 68, 68, 0.3);">
+            <div class="hb-icon" style="background: #fecdd3; color: #dc2626;">🚑</div>
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 6px;">
+                <span class="hb-name" style="color: #991b1b;">ECU 911</span>
+                <span style="font-size: 0.68rem; font-weight: 800; background: #dc2626; color: #fff; padding: 1px 6px; border-radius: var(--radius-full);">1ª Opción</span>
+              </div>
+              <div class="hb-desc">Emergencia Vital Nacional · Gratuito</div>
             </div>
-            <div class="hb-call" style="background: var(--sos-primary); color: #fff;">Llamar</div>
+            <div class="hb-call" style="background: #dc2626; color: #fff;">Llamar 911</div>
           </a>
 
-          <a href="tel:911" class="hotline-bubble" style="background: var(--sky-50); border-color: rgba(14, 165, 233, 0.2);">
-            <div class="hb-icon" style="background: var(--sky-100);">🚑</div>
-            <div>
-              <div class="hb-name">ECU 911</div>
-              <div class="hb-desc">Emergencias vitales</div>
+          <!-- 2ª Opción: 171 Opción 6 -->
+          <a href="tel:171" class="hotline-bubble" style="background: var(--sky-50); border: 1px solid rgba(14, 165, 233, 0.2);">
+            <div class="hb-icon" style="background: var(--sky-100);">🩺</div>
+            <div style="flex: 1;">
+              <div class="hb-name">Línea 171 · Opción 6</div>
+              <div class="hb-desc">Salud Mental MSP Ecuador · Gratuito 24/7</div>
             </div>
-            <div class="hb-call" style="background: var(--sky-500); color: #fff;">Llamar</div>
+            <div class="hb-call" style="background: var(--sky-500); color: #fff;">Llamar 171</div>
           </a>
         </div>
       </div>
@@ -653,9 +661,12 @@
         <button id="crisisNextBtn" class="crisis-step-btn next">Siguiente ➡️</button>
       </div>
 
-      <div class="crisis-urgent-bar">
-        <a href="tel:171" class="crisis-call-btn">
-          📞 Línea 171 · Opción 6 · Salud Mental (Gratuito)
+      <div class="crisis-urgent-bar" style="display: flex; gap: 8px;">
+        <a href="tel:911" class="crisis-call-btn" style="flex: 1; background: #dc2626; color: #fff;">
+          🚑 911 Emergencia (Gratuito)
+        </a>
+        <a href="tel:171" class="crisis-call-btn" style="flex: 1; background: #0284c7; color: #fff;">
+          📞 171 Opción 6 (Salud Mental)
         </a>
       </div>
     </div>

@@ -4,6 +4,7 @@
 
 import { storage } from "../db/storage.js";
 import { cryptoEngine } from "../crypto/encryption.js";
+import { dailyMilestones } from "./daily-milestones.js";
 
 export class SafetyPlanModule {
   constructor() {
@@ -16,6 +17,8 @@ export class SafetyPlanModule {
     await this.loadPlan();
     this.render();
     this.attachEvents();
+    // Mark daily milestone for reviewing safety plan
+    await dailyMilestones.markMilestone("safety");
   }
 
   async loadPlan() {
@@ -30,6 +33,7 @@ export class SafetyPlanModule {
     this.plan.updatedAt = new Date().toISOString();
     await storage.put("safety_plan", this.plan);
     this.render();
+    await dailyMilestones.markMilestone("safety");
   }
 
   render() {

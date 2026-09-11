@@ -4,6 +4,7 @@
    ========================================================================== */
 
 import { storage } from "../db/storage.js";
+import { dailyMilestones } from "./daily-milestones.js";
 
 export class MoodTrackerModule {
   constructor() {
@@ -37,6 +38,9 @@ export class MoodTrackerModule {
     await this.loadLogs();
     this.renderChart();
     this.checkRiskPattern();
+
+    // Mark daily milestone
+    await dailyMilestones.markMilestone("mood");
   }
 
   checkRiskPattern() {

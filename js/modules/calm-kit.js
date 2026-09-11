@@ -4,6 +4,7 @@
 
 import { CONFIG } from "../config.js";
 import { soundEngine } from "../audio/sound-engine.js";
+import { dailyMilestones } from "./daily-milestones.js";
 
 export class CalmKitModule {
   constructor() {
@@ -51,6 +52,9 @@ export class CalmKitModule {
     if (this.isBreathingRunning) return;
     this.isBreathingRunning = true;
     this.currentPhaseIndex = 0;
+
+    // Mark daily milestone for calm exercise
+    dailyMilestones.markMilestone("calm");
 
     const startBtn = document.getElementById("startBreathingBtn");
     if (startBtn) {

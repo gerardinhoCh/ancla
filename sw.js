@@ -3,7 +3,7 @@
    Guarantees 100% functionality without internet connection.
    ========================================================================== */
 
-const CACHE_NAME = "ancla-cache-v2";
+const CACHE_NAME = "ancla-cache-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -23,6 +23,7 @@ const ASSETS_TO_CACHE = [
   "./js/modules/safety-plan.js",
   "./js/modules/calm-kit.js",
   "./js/modules/mood-tracker.js",
+  "./js/modules/daily-milestones.js",
   "./js/modules/anchors.js",
   "./js/modules/therapist-portal.js",
   "./js/app.js"
@@ -32,7 +33,7 @@ const ASSETS_TO_CACHE = [
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[SW] Pre-caching core offline assets for Ancla...");
+      console.log("[SW] Pre-caching core offline assets for Ancla (v3)...");
       return cache.addAll(ASSETS_TO_CACHE);
     }).then(() => self.skipWaiting())
   );
@@ -56,7 +57,6 @@ self.addEventListener("activate", (event) => {
 
 // Fetch Event: Cache-First strategy with fallback to Network
 self.addEventListener("fetch", (event) => {
-  // Only intercept GET requests
   if (event.request.method !== "GET") return;
 
   event.respondWith(
@@ -66,7 +66,6 @@ self.addEventListener("fetch", (event) => {
       }
 
       return fetch(event.request).then((networkResponse) => {
-        // Optionally cache new successful responses
         if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== "basic") {
           return networkResponse;
         }
@@ -78,11 +77,27 @@ self.addEventListener("fetch", (event) => {
 
         return networkResponse;
       }).catch(() => {
-        // If offline and request is for navigation, return cached index.html
         if (event.request.mode === "navigate") {
           return caches.match("./index.html");
         }
       });
+    })
+  );
+});
+
+// Handle click on background notifications
+self.addEventListener("notificationclick", (event) => {
+  event.notification.close();
+  event.waitUntil(
+    clients.matchAll({ type: "window", includeUncontrolled: true }).then((clientList) => {
+      for (const client of clientList) {
+        if (client.url && "focus" in client) {
+          return client.focus();
+        }
+      }
+      if (clients.openWindow) {
+        return clients.openWindow("./");
+      }
     })
   );
 });

@@ -8,8 +8,19 @@ export const CONFIG = {
   DB_NAME: "ancla_secure_db",
   DB_VERSION: 1,
 
-  // Default Emergency Hotlines (Ecuador primary per plan_tecnico_implementacion.md)
+  // Default Emergency Hotlines (Ecuador primary: ECU 911 Gratuito First)
   DEFAULT_HOTLINES: [
+    {
+      id: "ec_ecu911",
+      name: "ECU 911 (Emergencias Nacionales)",
+      entity: "Servicio Integrado de Seguridad ECU 911",
+      number: "911",
+      telUri: "tel:911",
+      type: "general_emergency",
+      badge: "Gratuito · Emergencia Vital",
+      urgent: true,
+      description: "Ambulancias, rescate y riesgo inminente para la vida en Ecuador. Gratuito."
+    },
     {
       id: "ec_msp_171",
       name: "Línea 171 - Opción 6 (Salud Mental)",
@@ -21,19 +32,26 @@ export const CONFIG = {
       badge: "Gratuito 24/7",
       urgent: true,
       description: "Atención psicológica inmediata y contención de crisis emocional en Ecuador."
-    },
-    {
-      id: "ec_ecu911",
-      name: "ECU 911 (Emergencias Nacionales)",
-      entity: "Servicio Integrado de Seguridad ECU 911",
-      number: "911",
-      telUri: "tel:911",
-      type: "general_emergency",
-      badge: "Emergencia Vital",
-      urgent: true,
-      description: "Ambulancias, rescate y riesgo inminente para la vida en Ecuador."
     }
   ],
+
+  // Key clinical and operational emergency contacts for automatic dispatch
+  DEFAULT_KEY_CONTACTS: {
+    psychologist: {
+      id: "psychologist",
+      name: "Psicólogo(a) a Cargo",
+      phone: "+593999999991",
+      role: "Psicólogo(a) Clínico a Cargo",
+      relation: "Terapeuta Tratante"
+    },
+    secondInCommand: {
+      id: "second_in_command",
+      name: "Segundo al Mando",
+      phone: "+593999999992",
+      role: "Segundo al Mando / Apoyo Prioritario",
+      relation: "Contacto de Confianza Primario"
+    }
+  },
 
   // International emergency contacts database for rapid configuration
   INTERNATIONAL_HOTLINES: {
